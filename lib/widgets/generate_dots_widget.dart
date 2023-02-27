@@ -54,9 +54,9 @@ class GenerateDotsWidget extends StatelessWidget {
 
   Color _dotsColor(BuildContext context, int index) {
     //
-    bool _isDarkTheme = DI.themeController(context).isDarkTheme;
+    bool isDarkTheme = DI.themeController(context).isDarkTheme;
     //
-    if (_isDarkTheme) {
+    if (isDarkTheme) {
       if (selectedIndex == index) {
         return Colors.white;
       }

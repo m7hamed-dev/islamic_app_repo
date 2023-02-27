@@ -10,7 +10,7 @@ class SampleTxtColor extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('smaple txt and color rebuild .......');
     return Consumer<SettingsController>(
-      builder: (context, _controller, _) {
+      builder: (context, controller, _) {
         return const Center(
           child: Txt(
             'مثال',

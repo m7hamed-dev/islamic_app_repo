@@ -5,14 +5,11 @@ import 'package:quran/views/about_devloper/about_devloper_view.dart';
 import '../../styles/row_select_color.dart';
 import '../../widgets/btn.dart';
 import '../../widgets/icon_switch_vibrate.dart';
-import '../../widgets/row_font_types.dart';
 import '../../widgets/slider_change_size_font.dart';
 import '../../widgets/txt.dart';
 
 const widgetsSetting = <Widget>[
   IconSwitchVibrate(),
-  // SwitchReadQuranOnlineOrPdf(),
-  RowFontTypes(),
   RowSelectColor(),
   SliderChangeSizeFont(),
   BtnGoToAboutDeveloper(),

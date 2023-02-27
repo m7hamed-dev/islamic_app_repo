@@ -85,13 +85,13 @@ class _SurahOnlineViewState extends State<SurahOnlineView> {
         leading: const IconLeading(),
       ),
       body: Consumer<QuranAPI>(
-        builder: (context, _controller, child) {
+        builder: (context, controller, child) {
           //
           return ListView.builder(
             controller: _scrollController,
-            itemCount: _controller.surahLis.length,
+            itemCount: controller.surahLis.length,
             itemBuilder: (BuildContext context, int index) {
-              _numberAya = ConvertTo.toArabicNumber(_controller
+              _numberAya = ConvertTo.toArabicNumber(controller
                   .selectedSurah.ayahs[index].numberInSurah
                   .toString());
 
@@ -109,7 +109,7 @@ class _SurahOnlineViewState extends State<SurahOnlineView> {
                   title: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Txt(
-                      _controller.selectedSurah.ayahs[index].text,
+                      controller.selectedSurah.ayahs[index].text,
                       textAlign: TextAlign.center,
                       isUseFontSizePrefs: false,
                       fontSize: 20.0,

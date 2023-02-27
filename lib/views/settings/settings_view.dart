@@ -25,10 +25,10 @@ class SettingsView extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(12.0),
             child: BottomAnimator(
-              child: widgetsSetting[index],
               time: Duration(
                 milliseconds: 200 * index + 10,
               ),
+              child: widgetsSetting[index],
             ),
           );
         },

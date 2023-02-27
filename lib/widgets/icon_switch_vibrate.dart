@@ -11,21 +11,21 @@ class IconSwitchVibrate extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('IconSwitchVibrate.....');
     return Consumer<VibrateAPIsProvider>(
-      builder: (context, _controller, _) {
+      builder: (context, controller, _) {
         return ListTileSetting(
           title: 'السماح للتسبيح بالإهتزاز',
           subtitle: Txt(
-            _controller.getCanVibrate == false ? 'سماح' : 'منع',
+            controller.getCanVibrate == false ? 'سماح' : 'منع',
             isUseFontSizePrefs: false,
             fontSize: 15.9,
             fontFamily: 'pfd',
             fontWeight: FontWeight.w100,
           ),
-          onTap: _controller.getCanVibrate ? _controller.runVibrate : null,
+          onTap: controller.getCanVibrate ? controller.runVibrate : null,
           icon: Icons.vibration,
           trailing: CupertinoSwitch(
-            value: _controller.getCanVibrate,
-            onChanged: _controller.onChanged,
+            value: controller.getCanVibrate,
+            onChanged: controller.onChanged,
             activeColor: Theme.of(context).primaryColor,
             trackColor: Theme.of(context).primaryColor.withOpacity(.2),
           ),

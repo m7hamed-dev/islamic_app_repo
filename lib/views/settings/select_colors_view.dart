@@ -17,12 +17,12 @@ class SelectColorsView extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) {
           return BottomAnimator(
+            time: const Duration(milliseconds: 900),
             child: Container(
               width: 40.0,
               height: 40.0,
               color: Colors.red,
             ),
-            time: const Duration(milliseconds: 900),
             //+ index * 100
           );
         },

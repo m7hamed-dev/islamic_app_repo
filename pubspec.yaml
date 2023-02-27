@@ -100,44 +100,9 @@ flutter:
     - assets/duaa_imgs/
 
   fonts:
-    - family: pfd
+    - family: Almarai
       fonts:
-        - asset: assets/fonts/PFDinTextUniversal-Medium.ttf
-      # weight: 700
-
-    - family: almarai
-      fonts:
-        - asset: assets/fonts/almarai.ttf
-      # weight: 700
-    
-    - family: tajawal
-      fonts:
-        - asset: assets/fonts/tajawal.ttf
-      # weight: 700   
-
-    - family: cairo
-      fonts:
-        - asset: assets/fonts/cairo.ttf
-      # weight: 700
-   
-    - family: DroidKufi
-      fonts:
-        - asset: assets/fonts/ArbFONTS-DroidKufi-Bold.ttf
-      # weight: 700    
-    
-    - family: Hacen
-      fonts:
-        - asset: assets/fonts/Hacen Tunisia Regular.ttf    
-    
-    - family: dinn
-      fonts:
-        - asset: assets/fonts/DINNextLTArabic-Regular-3.ttf
-    
-    - family: dinn-reg
-      fonts:
-        - asset: assets/fonts/DINNextLTArabic-Regu.ttf
-    
-    - family: dinn-bold
-      fonts:
-        - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Bold-4.ttf
-      # weight: 700
+      - asset: assets/fonts/Almarai-Regular.ttf
+      - asset: assets/fonts/Almarai-Light.ttf
+      - asset: assets/fonts/Almarai-Bold.ttf
+      - asset: assets/fonts/Almarai-ExtraBold.ttf

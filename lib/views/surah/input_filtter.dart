@@ -16,9 +16,9 @@ class InputFiltter extends StatelessWidget {
           ? null
           : InkWell(
               onTap: () {
-                final _controller = context.watch<SurahController>();
-                _controller.filtteSurahByPlace('all');
-                _controller.clearTexr();
+                final controller = context.watch<SurahController>();
+                controller.filtteSurahByPlace('all');
+                controller.clearTexr();
                 HideKeyBoard.hide(context);
                 // surahController.textEditingController.clear();
               },

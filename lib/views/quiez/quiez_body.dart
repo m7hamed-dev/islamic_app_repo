@@ -17,7 +17,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return Consumer<QuiezController>(
-      builder: (context, _questionController, _) {
+      builder: (context, questionController, _) {
         //
         return Stack(
           children: [
@@ -37,12 +37,12 @@ class Body extends StatelessWidget {
                     child: PageView.builder(
                       // Block swipe to next qn
                       physics: const NeverScrollableScrollPhysics(),
-                      controller: _questionController.pageController,
-                      onPageChanged: _questionController.updateTheQnNum,
-                      itemCount: _questionController.questions.length,
+                      controller: questionController.pageController,
+                      onPageChanged: questionController.updateTheQnNum,
+                      itemCount: questionController.questions.length,
                       itemBuilder: (context, index) {
                         return QuestionCard(
-                          question: _questionController.questions[index],
+                          question: questionController.questions[index],
                           animationController: animationController,
                         );
                       },

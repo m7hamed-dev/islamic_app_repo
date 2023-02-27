@@ -24,7 +24,7 @@ class QuestionCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Consumer<QuiezController>(
-        builder: (context, _questionController, _) => Container(
+        builder: (context, questionController, _) => Container(
           decoration: BoxDecoration(
             // color: Colors.white,
             borderRadius: BorderRadius.circular(25),
@@ -51,7 +51,7 @@ class QuestionCard extends StatelessWidget {
                   child: CardOption(
                     index: index,
                     text: question.options[index].sugge,
-                    press: () => _questionController.checkAns(
+                    press: () => questionController.checkAns(
                       question,
                       index,
                       context,

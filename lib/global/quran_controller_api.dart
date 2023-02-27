@@ -32,31 +32,31 @@ class QuranAPI extends ChangeNotifier {
     // final _dbHelper = context.read<DbHelper>();
 
     try {
-      final _isAPICacheKeyExist = await _isAPICached;
+      final isAPICacheKeyExist = await _isAPICached;
       // check is get from cached
-      if (_isAPICacheKeyExist) {
-        debugPrint('is getting from cahced $_isAPICacheKeyExist');
-        final _cachedData =
+      if (isAPICacheKeyExist) {
+        debugPrint('is getting from cahced $isAPICacheKeyExist');
+        final cachedData =
             await APICacheManager().getCacheData('surah_list_cached_key');
         //
-        final _surahs = quranOnlineModelFromJson(_cachedData.syncData);
+        final surahs0 = quranOnlineModelFromJson(cachedData.syncData);
         //
-        for (var item in _surahs.data.surahs) {
+        for (var item in surahs0.data.surahs) {
           surahLis.add(item);
         }
         isLoading = false;
         notifyListeners();
       } else {
-        debugPrint('is getting from cahced $_isAPICacheKeyExist');
+        debugPrint('is getting from cahced $isAPICacheKeyExist');
 
         http.Response response = await http.get(Uri.parse(url));
         debugPrint(response.body);
         if (response.statusCode == 200) {
-          final _apiCacheDBModel = APICacheDBModel(
+          final apiCacheDBModel = APICacheDBModel(
             key: 'surah_list_cached_key',
             syncData: response.body,
           );
-          await APICacheManager().addCacheData(_apiCacheDBModel);
+          await APICacheManager().addCacheData(apiCacheDBModel);
           //
           final surahs = quranOnlineModelFromJson(response.body).data.surahs;
           //

@@ -24,11 +24,11 @@ class MusicQuranView extends StatelessWidget {
               itemCount:
                   context.watch<MusicQuranController>().lettersArabic.length,
               itemBuilder: (BuildContext context, int index) {
-                final _controller = context.read<MusicQuranController>();
+                final controller = context.read<MusicQuranController>();
                 return InkWell(
                   onTap: () {
-                    _controller.filter(_controller.lettersArabic[index]);
-                    _controller.setsSlectedLetterIndex(index);
+                    controller.filter(controller.lettersArabic[index]);
+                    controller.setsSlectedLetterIndex(index);
                   },
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 900),
@@ -43,7 +43,7 @@ class MusicQuranView extends StatelessWidget {
                     //       : 10.0,
                     // ),
                     child: Text(
-                      _controller.lettersArabic[index],
+                      controller.lettersArabic[index],
                       style: TxtStyle.customStyle(),
                     ),
                   ),

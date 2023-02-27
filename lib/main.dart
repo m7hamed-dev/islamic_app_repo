@@ -4,11 +4,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
+import 'package:quran/home/home_view.dart';
 import 'package:quran/storage/local_storage.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/tools/constants.dart';
 import 'package:http/http.dart' as http;
-import 'package:quran/views/quran/quran_online_view.dart';
 import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/custom_loading.dart';
 import 'package:quran/widgets/txt.dart';
@@ -25,9 +25,9 @@ Future<void> main() async {
 
   /// init local stoage
   await LocalStorage.init();
-  const String _locale = 'ar';
+  const String locale = 'ar';
   //
-  HijriCalendar.setLocal(_locale);
+  HijriCalendar.setLocal(locale);
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SAU')],
@@ -59,8 +59,7 @@ class MyApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          home: const QuranOnlineView(),
-          // home: const CheckFirstShowScreen(),
+          home: const HomeView(),
         );
       },
     );
@@ -83,10 +82,10 @@ class _QariListPageState extends State<QariListPage> {
   ///
   Future _getQaris() async {
     try {
-      final _uri = Uri.parse('https://quranicaudio.com/api/qaris');
-      final _jsonString = await http.get(_uri);
-      final _qariListModel = qariListModelFromJson(_jsonString.body);
-      for (var qari in _qariListModel) {
+      final uri = Uri.parse('https://quranicaudio.com/api/qaris');
+      final jsonString = await http.get(uri);
+      final qariListModel = qariListModelFromJson(jsonString.body);
+      for (var qari in qariListModel) {
         _qariList.add(qari);
       }
       _isLoading = false;

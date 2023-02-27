@@ -28,10 +28,10 @@ class WidgetRequestPermission extends StatelessWidget {
             color: Colors.grey,
           ),
           Consumer<LocationServiceProvider>(
-            builder: (context, _service, _) => Btn(
+            builder: (context, service, _) => Btn(
               onPressed: () {
                 // if service location is enable
-                if (_service.serviceEnabled) {
+                if (service.serviceEnabled) {
                   // _service.requestPermission();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(

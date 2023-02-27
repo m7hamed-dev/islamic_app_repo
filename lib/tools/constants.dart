@@ -25,7 +25,7 @@ class Constants {
   static const appName = 'خطى إسلامية';
   //
   static const linkAppInGoolePlayStore =
-      'https://play.google.com/store/apps/details?id=com.mohsyed.quran';
+      'https://play.google.com/store/apps/details?id=com.awseforapps.khota.islamia';
   //
   // all messages app
   static const processSuccess = 'تمت بنجاح ';

@@ -63,18 +63,18 @@ class _PrayTimesState extends State<PrayTimes> {
       child: Scaffold(
         body: Center(
           child: Consumer<LocationServiceProvider>(
-            builder: (context, _locationService, _) {
+            builder: (context, locationService, _) {
               // service disable
-              if (!_locationService.serviceEnabled) {
+              if (!locationService.serviceEnabled) {
                 return const WidgetLocationDisable();
               }
               //
-              if (!_locationService.isGranted) {
+              if (!locationService.isGranted) {
                 return Btn(
                   // height: 60.0,
                   margin: const EdgeInsets.all(5.0),
                   padding: const EdgeInsets.all(10.0),
-                  onPressed: _locationService.checkPermissionsAPI,
+                  onPressed: locationService.checkPermissionsAPI,
                   child: const Txt(
                     'الرجاء التأكد من فتح الموقع الخاص بهاتفك ومن ثم من صلاحية الوصول',
                     isUseFontSizePrefs: false,
@@ -84,7 +84,7 @@ class _PrayTimesState extends State<PrayTimes> {
                 );
               }
               //
-              if (_locationService.locationPermission ==
+              if (locationService.locationPermission ==
                   PermissionStatus.denied) {
                 return Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -94,7 +94,7 @@ class _PrayTimesState extends State<PrayTimes> {
                       await Permission.location.request();
                     },
                     child: Txt(
-                      _locationService.locationPermission.name,
+                      locationService.locationPermission.name,
                       isUseFontSizePrefs: false,
                       fontSize: 20.0,
                       color: Colors.white,
@@ -103,8 +103,7 @@ class _PrayTimesState extends State<PrayTimes> {
                 );
               }
               //
-              if (_locationService.isGranted &&
-                  _locationService.serviceEnabled) {
+              if (locationService.isGranted && locationService.serviceEnabled) {
                 return FutureBuilder<Data>(
                   future: jsonConnection.getPTLocation(),
                   builder:

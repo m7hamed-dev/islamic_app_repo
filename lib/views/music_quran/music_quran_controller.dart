@@ -15,8 +15,8 @@ class MusicQuranController extends ChangeNotifier {
   //
   List<String> convetToListOfStrings(String value) {
     var valueWithotComma = value.split(',');
-    int _length = valueWithotComma.length;
-    return List.generate(_length, (index) => valueWithotComma[index]).toList();
+    int length = valueWithotComma.length;
+    return List.generate(length, (index) => valueWithotComma[index]).toList();
   }
 
   final List<String> lettersArabic = [
@@ -73,8 +73,8 @@ class MusicQuranController extends ChangeNotifier {
   Future<void> getMusicQuran() async {
     var jsonString =
         await rootBundle.loadString('assets/json/quran_mp3_json.json');
-    final _musicQuranModel = quranMp3ModelFromJson(jsonString).reciters;
-    filtterReciters = reciters = _musicQuranModel;
+    final musicQuranModel = quranMp3ModelFromJson(jsonString).reciters;
+    filtterReciters = reciters = musicQuranModel;
     notifyListeners();
   }
 
@@ -83,8 +83,8 @@ class MusicQuranController extends ChangeNotifier {
   ///
   Future<void> getSurahNameFromJsonString() async {
     var jsonString = await rootBundle.loadString(Constants.surhaNamePath);
-    final _surahNameModel = surahNameModelFromJson(jsonString);
-    surahNameList = _surahNameModel;
+    final surahNameModel = surahNameModelFromJson(jsonString);
+    surahNameList = surahNameModel;
     notifyListeners();
   }
 

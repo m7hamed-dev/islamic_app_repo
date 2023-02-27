@@ -77,6 +77,7 @@ class ThemeController extends ChangeNotifier {
 
   ThemeData _lightTheme() {
     return ThemeData(
+      fontFamily: 'Almarai',
       primaryColor: primaryColor,
       appBarTheme: AppBarTheme(
         // color: Colors.white,
@@ -93,6 +94,7 @@ class ThemeController extends ChangeNotifier {
 
   ThemeData _darkTheme() {
     return ThemeData(
+      fontFamily: 'Almarai',
       scaffoldBackgroundColor: HexColor('##1c2939'),
       appBarTheme: AppBarTheme(
         color: HexColor('#16202a'),

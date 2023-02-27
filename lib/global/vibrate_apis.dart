@@ -8,7 +8,6 @@ class VibrateAPIsProvider extends ChangeNotifier {
   }
   //
   Future<bool> checkDeviceCanVibrate() async {
-
     return await Vibrate.canVibrate;
   }
 
@@ -16,9 +15,9 @@ class VibrateAPIsProvider extends ChangeNotifier {
   bool get getCanVibrate => _canVibrate;
   //
   void runVibrate() async {
-    const _feedback = FeedbackType.success;
+    const feedback = FeedbackType.success;
     if (_canVibrate) {
-      Vibrate.feedback(_feedback);
+      Vibrate.feedback(feedback);
     }
   }
 

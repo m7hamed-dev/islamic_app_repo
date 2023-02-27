@@ -8,7 +8,7 @@ class CardScore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<QuiezController>(
-        builder: (context, _qnController,
+        builder: (context, qnController,
                 _) => // SvgPicture.asset("assets/icons/bg.svg", fit: BoxFit.fill),
             Column(
               children: [
@@ -16,7 +16,7 @@ class CardScore extends StatelessWidget {
                   "Score",
                 ),
                 Text(
-                  "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
+                  "${qnController.correctAns * 10}/${qnController.questions.length * 10}",
                 ),
               ],
             ));

@@ -27,8 +27,8 @@ class InfoIslamicController extends ChangeNotifier {
   void _loadInfoIslmic() async {
     String jsonString =
         await rootBundle.loadString('assets/json/info_islamic.json');
-    final _irshadModel = infoIslamicModelFromJson(jsonString);
-    info = _irshadModel;
+    final irshadModel = infoIslamicModelFromJson(jsonString);
+    info = irshadModel;
     notifyListeners();
   }
 }

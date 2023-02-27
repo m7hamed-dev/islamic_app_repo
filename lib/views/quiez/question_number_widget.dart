@@ -15,20 +15,20 @@ class QuestionNumberWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Consumer<QuiezController>(builder:
-          (BuildContext context, QuiezController _questionController, _) {
-        final _questionNumber =
-            ConvertTo.toArabicNumber(_questionController.questionNumber.toString());
+          (BuildContext context, QuiezController questionController, _) {
+        final questionNumber = ConvertTo.toArabicNumber(
+            questionController.questionNumber.toString());
         //
-        final _questionsLength =
-            ConvertTo.toArabicNumber(_questionController.questions.length.toString());
+        final questionsLength = ConvertTo.toArabicNumber(
+            questionController.questions.length.toString());
 
         //
         return Text.rich(
           TextSpan(
-            text: " $_questionNumber",
+            text: " $questionNumber",
             children: [
               TextSpan(
-                text: "/ $_questionsLength سؤال ",
+                text: "/ $questionsLength سؤال ",
               ),
             ],
           ),

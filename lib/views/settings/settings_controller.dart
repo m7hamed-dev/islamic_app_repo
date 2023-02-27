@@ -5,7 +5,6 @@ import 'package:quran/tools/screen_util.dart';
 class SettingsController extends ChangeNotifier {
   SettingsController() {
     getFontSize();
-    getFontType();
   }
   double heighBottomNavigation = 0.0;
   double fontSize = 14.0;
@@ -32,21 +31,12 @@ class SettingsController extends ChangeNotifier {
     fontSize = LocalStorage.getFontSize();
   }
 
-  String fontType = 'pfd';
-  //
-  void getFontType() {
-    fontType = fontsName[selectedFontTypeIndex];
-  }
-
   int selectedFontTypeIndex = 0;
   //
-  final fontsName = <String>['pfd', 'DroidKufi', 'almarai', 'tajawal'];
   //
-  void onSelectedFontType(int _index) {
-    selectedFontTypeIndex = _index;
-    // LocalStorage.saveFontType(value: fontsName[index]);
-    LocalStorage.saveIndexOfFontType(index: _index);
-    getFontType();
+  void onSelectedFontType(int index) {
+    selectedFontTypeIndex = index;
+    LocalStorage.saveIndexOfFontType(index: index);
     notifyListeners();
   } //
 

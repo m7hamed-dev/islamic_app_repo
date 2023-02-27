@@ -115,14 +115,14 @@ class _TakeScreenShotMyWidgetState extends State<TakeScreenShotMyWidget> {
                     ),
                     InkWell(
                       onTap: () {
-                        const _txtShare = '''
+                        const txtShare = '''
 ${Constants.appName} \n
 تطبيق يحتوي علي مجموعه اسلاميه من قراءة قرآن كريم اذكار المسلم تسبيح اسئله دينيه معلومات اسلاميه كما يمكنك من مشاركة كل هذه الاشياء مع اصدقائك
 ساهم في نشر التطبيق فالدال على الخير كفاعله
  رابط التحميل: 
  ${Constants.linkAppInGoolePlayStore}
  ''';
-                        CustomShare.shareTxt(_txtShare);
+                        CustomShare.shareTxt(txtShare);
                       },
                       child: const Txt(
                         'مشاركة التطبيق',

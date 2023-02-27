@@ -34,9 +34,9 @@ class WidgetLocationDisable extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           Consumer<LocationServiceProvider>(
-            builder: (context, _service, _) => Btn(
+            builder: (context, service, _) => Btn(
               height: 60.0,
-              onPressed: _service.openSettingsAPI,
+              onPressed: service.openSettingsAPI,
               child: const Txt(
                 'الذهاب الي الاعدادات الخاصة بهاتفك',
                 isUseFontSizePrefs: false,

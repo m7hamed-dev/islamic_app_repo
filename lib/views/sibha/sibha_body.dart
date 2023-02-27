@@ -49,13 +49,13 @@ class SibhaBody extends StatelessWidget {
                     return;
                   },
                   innerWidget: (double _) {
-                    final String _count =
+                    final String count =
                         ConvertTo.toArabicNumber('${value.count}');
-                    debugPrint('hash code = ${_count.hashCode}');
+                    debugPrint('hash code = ${count.hashCode}');
                     //
                     return Center(
                       child: Txt(
-                        _count,
+                        count,
                         isUseFontSizePrefs: false,
                         fontSize: 20.0,
                       ),

@@ -29,11 +29,11 @@ class CardSurah extends StatelessWidget {
           contentPadding: EdgeInsets.zero,
           onTap: () {
             HideKeyBoard.hide(context);
-            final _quranController = context.read<QuranController>();
-            _quranController.setCurrentPage(surahModel.pages);
+            final quranController = context.read<QuranController>();
+            quranController.setCurrentPage(surahModel.pages);
             transitionAnimation.fromBottomToTop(
               context: context,
-              goToPage: QuranView(surahName: ' سورة ' + surahModel.titleAr),
+              goToPage: QuranView(surahName: ' سورة ${surahModel.titleAr}'),
             );
           },
           title: Txt(
@@ -58,8 +58,7 @@ class CardSurah extends StatelessWidget {
             ),
           ),
           trailing: Image.asset(
-            'assets/arabic_quran/' +
-                SurahLogic.getUrlMekiaOrMednia(surahModel.place),
+            'assets/arabic_quran/${SurahLogic.getUrlMekiaOrMednia(surahModel.place)}',
             width: 30.0,
             height: 30.0,
           ),

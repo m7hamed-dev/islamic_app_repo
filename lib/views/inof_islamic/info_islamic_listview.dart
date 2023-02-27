@@ -11,9 +11,9 @@ class InfoIslamicListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<InfoIslamicController>(
-      builder: (context, _controller, _) {
+      builder: (context, controller, _) {
         return ListView.builder(
-          itemCount: _controller.info.length,
+          itemCount: controller.info.length,
           itemBuilder: (BuildContext context, int index) {
             return BottomAnimator(
               time: Duration(milliseconds: index * 10),
@@ -22,14 +22,14 @@ class InfoIslamicListView extends StatelessWidget {
                 // padding: Constants.padding,
                 child: ListTile(
                   title: Txt(
-                    _controller.info[index].info,
+                    controller.info[index].info,
                     textAlign: TextAlign.center,
                   ),
                   subtitle: RowMultiProcess(
                     title: ' معلومات إسلاميه ',
-                    text: _controller.info[index].info,
+                    text: controller.info[index].info,
                     hsna: '',
-                    titleFavourit: _controller.info[index].info,
+                    titleFavourit: controller.info[index].info,
                   ),
                 ),
               ),

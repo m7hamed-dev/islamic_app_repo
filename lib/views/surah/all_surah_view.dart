@@ -72,10 +72,10 @@ class ItemsAppBar extends StatelessWidget {
         // ),
         IconButton(
           onPressed: () {
-            final _quranController = context.read<QuranController>();
-            _quranController.getLastReadingPage();
+            final quranController = context.read<QuranController>();
+            quranController.getLastReadingPage();
             Push.to(context,
-                QuranView(surahName: _quranController.currentSurahName));
+                QuranView(surahName: quranController.currentSurahName));
           },
           icon: const Icon(Icons.bookmark_added_rounded),
         )

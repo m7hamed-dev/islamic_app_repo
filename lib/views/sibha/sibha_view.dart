@@ -57,8 +57,8 @@ class _SibhaViewState extends State<SibhaView> {
             SibhaBody(),
           ].map((e) {
             return BottomAnimator(
-              child: e,
               time: const Duration(milliseconds: 300),
+              child: e,
             );
           }).toList(),
         ),

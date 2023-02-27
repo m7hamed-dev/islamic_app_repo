@@ -12,10 +12,10 @@ class BottomAnimator extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _AnimatorState createState() => _AnimatorState();
+  AnimatorState createState() => AnimatorState();
 }
 
-class _AnimatorState extends State<BottomAnimator>
+class AnimatorState extends State<BottomAnimator>
     with SingleTickerProviderStateMixin {
   late Timer timer;
   late AnimationController animationController;
@@ -82,8 +82,8 @@ class WidgetAnimator extends StatelessWidget {
   Widget build(BuildContext context) {
     //
     return BottomAnimator(
-      child: child!,
       time: wait(),
+      child: child!,
     );
   }
 }

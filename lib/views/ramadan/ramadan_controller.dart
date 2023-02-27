@@ -11,9 +11,9 @@ class RamadanController extends ChangeNotifier {
   final benefits = <RamadanModel>[];
   //
   Future<void> fetchBenefits() async {
-    final _jsonString = await FutureString.from('assets/json/ramadan.json');
-    final _benefits = ramadanModelFromJson(_jsonString);
-    benefits.addAll(_benefits);
+    final jsonString = await FutureString.from('assets/json/ramadan.json');
+    final benefits = ramadanModelFromJson(jsonString);
+    benefits.addAll(benefits);
     notifyListeners();
   }
 }

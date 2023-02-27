@@ -23,13 +23,13 @@ class QuranOnlineView extends StatelessWidget {
         leading: const IconLeading(),
       ),
       body: Consumer<QuranAPI>(
-        builder: (context, _controller, _) {
+        builder: (context, controller, _) {
           //
-          if (_controller.isLoading) {
+          if (controller.isLoading) {
             return const CustomLoading();
           }
           //
-          if (_controller.isError) {
+          if (controller.isError) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -52,12 +52,12 @@ class QuranOnlineView extends StatelessWidget {
             );
           }
           return ListView.builder(
-            itemCount: _controller.surahLis.length,
+            itemCount: controller.surahLis.length,
             physics: Constants.bouncScrollPhysics,
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
                 onTap: () {
-                  _controller.setSurah(index);
+                  controller.setSurah(index);
                   Push.to(
                     context,
                     const SurahOnlineView(),
@@ -72,23 +72,23 @@ class QuranOnlineView extends StatelessWidget {
                         backgroundColor:
                             DI.primaryColor(context).withOpacity(.5),
                         child: Txt(
-                          _controller.surahLis[index].number.toString(),
+                          controller.surahLis[index].number.toString(),
                           isUseFontSizePrefs: false,
                           fontSize: 13.0,
                         ),
                       ),
                       title: Txt(
-                        _controller.surahLis[index].name,
+                        controller.surahLis[index].name,
                         isUseFontSizePrefs: false,
                         fontSize: 16.0,
                       ),
                       subtitle: Txt(
-                        _controller.surahLis[index].revelationType,
+                        controller.surahLis[index].revelationType,
                         isUseFontSizePrefs: false,
                         fontSize: 13.0,
                       ),
                       trailing: MecaMedinaAsset(
-                        place: _controller.surahLis[index].revelationType,
+                        place: controller.surahLis[index].revelationType,
                       ),
                     ),
                   ),

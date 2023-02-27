@@ -19,7 +19,7 @@ class RowSelectColor extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint('RowSelectColor rebuild ..');
     return Consumer<ThemeController>(
-      builder: (context, _controller, _) {
+      builder: (context, controller, _) {
         return Container(
           decoration: CustomBoxDecoraton.decoration(context),
           // height: 120.0,
@@ -44,10 +44,9 @@ class RowSelectColor extends StatelessWidget {
                     Expanded(
                       child: InkWell(
                         onTap: () {
-                          _controller.changeThemeColor(
-                            1
-                            // _controller.selectedIndexOfColor,
-                          );
+                          controller.changeThemeColor(1
+                              // _controller.selectedIndexOfColor,
+                              );
                         },
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 400),
@@ -57,7 +56,7 @@ class RowSelectColor extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           alignment: Alignment.center,
-                          child: _controller.isLightTheme
+                          child: controller.isLightTheme
                               ? Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -90,7 +89,7 @@ class RowSelectColor extends StatelessWidget {
                     Expanded(
                       child: InkWell(
                         onTap: () {
-                          _controller.changeThemeColor(100);
+                          controller.changeThemeColor(100);
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -98,7 +97,7 @@ class RowSelectColor extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           alignment: Alignment.center,
-                          child: _controller.isLightTheme == false
+                          child: controller.isLightTheme == false
                               ? Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
@@ -112,7 +111,7 @@ class RowSelectColor extends StatelessWidget {
                                       isUseFontSizePrefs: false,
                                       fontSize: 20.0,
                                       color:
-                                          _controller.selectedIndexOfColor == 100
+                                          controller.selectedIndexOfColor == 100
                                               ? Colors.white
                                               : Colors.black,
                                       fontWeight: FontWeight.bold,
@@ -123,7 +122,7 @@ class RowSelectColor extends StatelessWidget {
                                   'غاتم',
                                   isUseFontSizePrefs: false,
                                   fontSize: 20.0,
-                                  color: _controller.selectedIndexOfColor != 100
+                                  color: controller.selectedIndexOfColor != 100
                                       ? Colors.white
                                       : Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -136,7 +135,7 @@ class RowSelectColor extends StatelessWidget {
               ),
               const SizedBox(height: 10.0),
               // if index of colors  equal 100 then hide colors
-              _controller.isLightTheme == false
+              controller.isLightTheme == false
                   ? const SizedBox()
                   : Btn(
                       height: 40.0,

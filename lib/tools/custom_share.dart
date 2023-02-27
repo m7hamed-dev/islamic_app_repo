@@ -1,6 +1,4 @@
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
-// import 'package:share/share.dart';
 import 'package:share_files_and_screenshot_widgets/share_files_and_screenshot_widgets.dart';
 import 'package:share_plus/share_plus.dart';
 

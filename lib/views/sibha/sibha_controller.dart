@@ -17,8 +17,8 @@ class SibhaController extends ChangeNotifier {
   List<AyaEbraModel> get ayaEbraItems => _ayaEbraModel;
   //
   Future<void> _fetchAyaEbraData() async {
-    final _jsonString = await FutureString.from('assets/json/aya_ebra.json');
-    _ayaEbraModel = ayaEbraModelFromJson(_jsonString);
+    final jsonString = await FutureString.from('assets/json/aya_ebra.json');
+    _ayaEbraModel = ayaEbraModelFromJson(jsonString);
     notifyListeners();
   }
 

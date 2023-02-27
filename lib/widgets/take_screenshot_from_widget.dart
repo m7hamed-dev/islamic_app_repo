@@ -52,11 +52,10 @@ class _TakeScreenShotFromWidgetState extends State<TakeScreenShotFromWidget> {
     )
         .then((capturedImage) async {
       // Uint8List pngBytes = byteData.buffer.asUint8List();
-      final _data = await loadImage(capturedImage);
+      final data = await loadImage(capturedImage);
       // await Share
 
-      await Share.shareFiles(['${_data.path}/image.png'],
-          text: 'Great picture');
+      await Share.shareFiles(['${data.path}/image.png'], text: 'Great picture');
 
       // debugPrint('capturedImage $capturedImage');
       // CustomShare.shareMp3(

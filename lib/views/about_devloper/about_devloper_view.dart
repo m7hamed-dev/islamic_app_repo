@@ -67,14 +67,14 @@ class AboutDeveloperView extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              const _txtShare = '''
+              const txtShare = '''
 ${Constants.appName} \n
 تطبيق يحتوي علي مجموعه اسلاميه من قراءة قرآن كريم اذكار المسلم تسبيح اسئله دينيه معلومات اسلاميه كما يمكنك من مشاركة كل هذه الاشياء مع اصدقائك
 ساهم في نشر التطبيق فالدال على الخير كفاعله
  رابط التحميل: 
  ${Constants.linkAppInGoolePlayStore}
  ''';
-              CustomShare.shareTxt(_txtShare);
+              CustomShare.shareTxt(txtShare);
             },
           ),
         ].map((e) {
@@ -84,8 +84,8 @@ ${Constants.appName} \n
               horizontal: 10.0,
             ),
             child: BottomAnimator(
-              child: e,
               time: const Duration(milliseconds: 300),
+              child: e,
             ),
           );
         }).toList(),
