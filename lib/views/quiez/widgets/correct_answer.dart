@@ -16,7 +16,6 @@ class CorrectAnswer extends StatelessWidget {
           isUseFontSizePrefs: false,
           color: Colors.black,
           fontSize: 35.0,
-          fontWeight: FontWeight.bold,
         );
       },
     );

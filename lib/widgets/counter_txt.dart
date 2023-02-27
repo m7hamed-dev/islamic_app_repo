@@ -17,16 +17,14 @@ class CounterTxt extends StatelessWidget {
     }
     return Consumer<DuaaController>(
       builder: (_, count, __) {
-        final String _count = ConvertTo.toArabicNumber('${detail!.count}');
+        final String count = ConvertTo.toArabicNumber('${detail!.count}');
         //
         return BottomAnimator(
           time: const Duration(milliseconds: 460),
           child: Txt(
-            _count,
+            count,
             fontSize: 19.0,
             isUseFontSizePrefs: false,
-            fontFamily: 'DroidKufi',
-            fontWeight: FontWeight.bold,
           ),
         );
       },

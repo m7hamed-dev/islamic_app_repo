@@ -16,7 +16,6 @@ class Copy {
           isUseFontSizePrefs: false,
           color: Colors.white,
           fontSize: Constants.txtFontSize + 10,
-          fontFamily: 'pfd',
         ),
       );
     });

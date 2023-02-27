@@ -13,7 +13,7 @@ class ThemeController extends ChangeNotifier {
   final List<Color> colors = const <Color>[
     Color.fromARGB(255, 63, 10, 0),
     Color.fromARGB(255, 63, 10, 6),
-    Color.fromARGB(255, 36, 33, 36),
+    Color.fromARGB(255, 35, 6, 35),
     Color.fromARGB(255, 111, 83, 40),
     Color.fromARGB(255, 103, 60, 12),
     Color.fromARGB(255, 198, 13, 136),
@@ -24,8 +24,7 @@ class ThemeController extends ChangeNotifier {
     Color.fromARGB(255, 6, 58, 101),
     Color.fromARGB(255, 13, 162, 7),
     Color.fromARGB(255, 8, 138, 4),
-    Color.fromARGB(255, 0, 161, 179),
-    // Color.fromARGB(255, 22, 169, 227),
+    Color.fromARGB(255, 58, 21, 146),
   ];
 
   int selectedIndexOfColor = 0;
@@ -79,6 +78,7 @@ class ThemeController extends ChangeNotifier {
     return ThemeData(
       fontFamily: 'Almarai',
       primaryColor: primaryColor,
+      useMaterial3: true,
       appBarTheme: AppBarTheme(
         // color: Colors.white,
         elevation: 0.0,
@@ -95,6 +95,7 @@ class ThemeController extends ChangeNotifier {
   ThemeData _darkTheme() {
     return ThemeData(
       fontFamily: 'Almarai',
+      useMaterial3: true,
       scaffoldBackgroundColor: HexColor('##1c2939'),
       appBarTheme: AppBarTheme(
         color: HexColor('#16202a'),

@@ -39,7 +39,6 @@ class ListViewTitleHisnView extends StatelessWidget {
                     isUseFontSizePrefs: false,
                     fontSize: 20.0,
                     textAlign: TextAlign.center,
-                    fontFamily: 'tajawal',
                   ),
                   const Divider(),
                   Txt(

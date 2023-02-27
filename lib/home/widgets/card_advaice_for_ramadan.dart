@@ -48,7 +48,6 @@ class CardAdvaiceForRamadan extends StatelessWidget {
             isUseFontSizePrefs: false,
             fontSize: 13.0,
             textAlign: TextAlign.center,
-            fontFamily: 'DroidKufi',
             color: DI.themeController(context).isDarkTheme
                 ? Colors.white
                 : Colors.black,

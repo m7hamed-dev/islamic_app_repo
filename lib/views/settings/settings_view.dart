@@ -3,7 +3,6 @@ import 'package:quran/tools/constants.dart';
 import 'package:quran/views/settings/widgets_setting.dart';
 import 'package:quran/widgets/icon_leading.dart';
 import '../../animation/bottom_animation.dart';
-import '../../global/custom_app_bar_shape.dart';
 import '../../widgets/app_bar_title.dart';
 
 class SettingsView extends StatelessWidget {
@@ -15,7 +14,7 @@ class SettingsView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTitle('الإعدادات'),
-        shape: CustomAppBarShape(),
+        // shape: CustomAppBarShape(),
         leading: const IconLeading(),
       ),
       body: ListView.builder(

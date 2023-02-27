@@ -12,16 +12,16 @@ class AppBarTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 20.0,
-          color: DI.themeController(context, isListen: true).isDarkTheme
-              ? DI.primaryColor(context)
-              : Colors.white,
+          // color: DI.themeController(context, isListen: true).isDarkTheme
+          //     ? DI.primaryColor(context)
+          //     : Colors.white,
           // : Colors.black,
           // : DI.primaryColor(context),
           // fontWeight: FontWeight.bold,
           // fontFamily: 'Hacen',
-          fontFamily: 'dinn-reg',
+          // fontFamily: 'dinn-reg',
         ),
       );
 }

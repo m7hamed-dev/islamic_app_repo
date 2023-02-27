@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/styles/custom_box_decoration.dart';
 import 'package:quran/styles/theme_controller.dart';
-import 'package:quran/tools/push.dart';
 import 'package:quran/views/theme_view/colors_listview.dart';
 import 'package:quran/widgets/btn.dart';
 import 'package:quran/widgets/txt.dart';
@@ -32,7 +31,6 @@ class RowSelectColor extends StatelessWidget {
                 'مظهر التطبيق',
                 isUseFontSizePrefs: false,
                 fontSize: Constants.fontSizeForSettingsTxt,
-                fontFamily: 'pfd',
               ),
               // const Divider(),
               //
@@ -70,7 +68,6 @@ class RowSelectColor extends StatelessWidget {
                                       isUseFontSizePrefs: false,
                                       fontSize: 20.0,
                                       color: Colors.white,
-                                      fontWeight: FontWeight.bold,
                                     ),
                                   ],
                                 )
@@ -79,7 +76,6 @@ class RowSelectColor extends StatelessWidget {
                                   isUseFontSizePrefs: false,
                                   fontSize: 20.0,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.bold,
                                 ),
                         ),
                       ),
@@ -114,7 +110,6 @@ class RowSelectColor extends StatelessWidget {
                                           controller.selectedIndexOfColor == 100
                                               ? Colors.white
                                               : Colors.black,
-                                      fontWeight: FontWeight.bold,
                                     ),
                                   ],
                                 )
@@ -125,7 +120,6 @@ class RowSelectColor extends StatelessWidget {
                                   color: controller.selectedIndexOfColor != 100
                                       ? Colors.white
                                       : Colors.black,
-                                  fontWeight: FontWeight.bold,
                                 ),
                         ),
                       ),
@@ -139,10 +133,12 @@ class RowSelectColor extends StatelessWidget {
                   ? const SizedBox()
                   : Btn(
                       height: 40.0,
-                      onPressed: () {
-                        Push.to(
-                          context,
-                          const GridViewColors(),
+                      onPressed: () async {
+                        await showDialog(
+                          context: context,
+                          builder: (context) {
+                            return const Dialog(child: GridViewColors());
+                          },
                         );
                       },
                       child: const Txt(

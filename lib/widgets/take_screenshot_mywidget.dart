@@ -6,7 +6,6 @@ import 'package:quran/widgets/icon_show_bottomnavigation.dart';
 import 'package:quran/widgets/navigation_bottom_settings.dart';
 import 'package:quran/widgets/txt.dart';
 import 'package:share_files_and_screenshot_widgets/share_files_and_screenshot_widgets.dart';
-import '../global/custom_app_bar_shape.dart';
 import '../tools/constants.dart';
 import '../tools/custom_share.dart';
 
@@ -56,7 +55,7 @@ class _TakeScreenShotMyWidgetState extends State<TakeScreenShotMyWidget> {
           ),
           const IconShowBottomNavigation()
         ],
-        shape: CustomAppBarShape(),
+        // shape: CustomAppBarShape(),
       ),
       body: Center(
         child: RepaintBoundary(
@@ -76,7 +75,6 @@ class _TakeScreenShotMyWidgetState extends State<TakeScreenShotMyWidget> {
                   isUseFontSizePrefs: false,
                   fontSize: 14.0,
                   textAlign: TextAlign.center,
-                  fontFamily: 'pfd',
                 ),
                 const Divider(),
                 Txt(
@@ -94,8 +92,6 @@ class _TakeScreenShotMyWidgetState extends State<TakeScreenShotMyWidget> {
                       'تطبيق خطي إسلاميه',
                       isUseFontSizePrefs: false,
                       fontSize: 11.0,
-                      // fontFamily: 'Hacen',
-                      fontWeight: FontWeight.bold,
                       textAlign: TextAlign.center,
                     ),
                     Container(
@@ -128,8 +124,6 @@ ${Constants.appName} \n
                         'مشاركة التطبيق',
                         isUseFontSizePrefs: false,
                         fontSize: 13.0,
-                        // fontFamily: 'Hacen',
-                        fontWeight: FontWeight.bold,
                         textAlign: TextAlign.center,
                       ),
                     )

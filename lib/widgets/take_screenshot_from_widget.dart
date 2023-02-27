@@ -8,7 +8,6 @@ import 'package:quran/widgets/icon_leading.dart';
 import 'package:quran/widgets/icon_show_bottomnavigation.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:share_plus/share_plus.dart';
-import '../global/custom_app_bar_shape.dart';
 
 //
 class TakeScreenShotFromWidget extends StatefulWidget {
@@ -89,7 +88,7 @@ class _TakeScreenShotFromWidgetState extends State<TakeScreenShotFromWidget> {
           ),
           const IconShowBottomNavigation()
         ],
-        shape: CustomAppBarShape(),
+        // shape: CustomAppBarShape(),
       ),
       body: widget.child,
       // bottomNavigationBar: const NavigationBbottomSettings(),

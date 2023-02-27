@@ -39,9 +39,10 @@ class CustomCard extends StatelessWidget {
         // borderRadius: BorderRadius.circular(10.0),
         color: Colors.transparent,
         child: InkWell(
-            onTap: onTap,
-            splashColor: DI.primaryColor(context).withOpacity(.2),
-            child: child),
+          onTap: onTap,
+          splashColor: DI.primaryColor(context).withOpacity(.2),
+          child: child,
+        ),
       ),
     );
     //

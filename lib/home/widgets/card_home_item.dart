@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/animation/slide_right_page_trans.dart';
 import 'package:quran/home/widgets/custom_asset_img.dart';
 import 'package:quran/styles/custom_box_decoration.dart';
 import 'package:quran/styles/theme_controller.dart';
+import 'package:quran/tools/push.dart';
 import 'package:quran/widgets/txt.dart';
 
 class CardHomeItem extends StatelessWidget {
@@ -32,10 +32,7 @@ class CardHomeItem extends StatelessWidget {
         //       )
         //     : Push.to(context, page);
 
-        Navigator.push(
-          context,
-          SlideRightRoute(page: page),
-        );
+        Push.to(context, page);
       },
       child: Container(
         margin: const EdgeInsets.symmetric(

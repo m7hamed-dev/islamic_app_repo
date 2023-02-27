@@ -24,7 +24,7 @@ class _IrshadViewState extends State<IrshadView> {
         appBar: AppBar(
           title: const AppBarTitle('نصايح وإرشادات'),
           actions: const [IconShowBottomNavigation()],
-          shape: CustomAppBarShape(),
+          // shape: CustomAppBarShape(),
           leading: const IconLeading(),
         ),
         body: const ListviewIrshad(),

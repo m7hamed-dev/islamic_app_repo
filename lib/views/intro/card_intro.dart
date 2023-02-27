@@ -35,7 +35,6 @@ class CardIntro extends StatelessWidget {
             title,
             isUseFontSizePrefs: false,
             fontSize: 40.0,
-            fontWeight: FontWeight.bold,
           ),
         ],
       ),

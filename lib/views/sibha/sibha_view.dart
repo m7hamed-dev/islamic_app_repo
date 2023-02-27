@@ -8,7 +8,6 @@ import 'package:quran/views/sibha/sibha_controller.dart';
 import 'package:quran/views/sibha/sibha_drop_items.dart';
 import 'package:quran/widgets/app_bar_title.dart';
 import 'package:quran/widgets/icon_switch_vibrate.dart';
-import '../../global/custom_app_bar_shape.dart';
 import '../../global/vibrate_apis.dart';
 import '../../widgets/icon_leading.dart';
 import 'sibha_body.dart';
@@ -42,7 +41,7 @@ class _SibhaViewState extends State<SibhaView> {
       appBar: AppBar(
         title: const AppBarTitle('السبحه '),
         actions: const [Actions()],
-        shape: CustomAppBarShape(),
+        // shape: CustomAppBarShape(),
         leading: const IconLeading(),
       ),
       body: InkWell(

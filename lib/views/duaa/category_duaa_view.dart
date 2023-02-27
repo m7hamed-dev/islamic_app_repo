@@ -18,7 +18,7 @@ class CategoryDuaaView extends StatelessWidget {
         actions: const [
           IconShowBottomNavigation(),
         ],
-        shape: CustomAppBarShape(),
+        // shape: CustomAppBarShape(),
       ),
       body: const DuaaCategoriesListView(),
       bottomNavigationBar: const NavigationBbottomSettings(),

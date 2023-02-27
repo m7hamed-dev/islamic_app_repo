@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:quran/widgets/app_bar_title.dart';
 import 'package:quran/widgets/listview_surah.dart';
 import 'package:quran/widgets/mecca_img.dart';
-import '../../global/custom_app_bar_shape.dart';
 import '../../tools/push.dart';
 import '../../widgets/icon_leading.dart';
 import '../../widgets/madina_img.dart';
@@ -23,7 +22,7 @@ class AllSurahView extends StatelessWidget {
         appBar: AppBar(
           title: const AppBarTitle('السور'),
           actions: const [ItemsAppBar()],
-          shape: CustomAppBarShape(),
+          // shape: CustomAppBarShape(),
           leading: const IconLeading(),
         ),
         body: const ListViewSurah(),

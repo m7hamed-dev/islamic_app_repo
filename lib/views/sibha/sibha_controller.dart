@@ -51,7 +51,6 @@ class SibhaController extends ChangeNotifier {
           isUseFontSizePrefs: false,
           color: Colors.white,
           fontSize: Constants.txtFontSize + 10,
-          fontFamily: 'pfd',
         ),
       );
     }

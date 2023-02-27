@@ -120,7 +120,6 @@ class _QariListPageState extends State<QariListPage> {
                     color: Colors.red,
                     isUseFontSizePrefs: false,
                     fontSize: 25.0,
-                    fontWeight: FontWeight.bold,
                   ),
                 )
               : ListView.builder(

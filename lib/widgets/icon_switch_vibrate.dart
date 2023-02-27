@@ -18,8 +18,6 @@ class IconSwitchVibrate extends StatelessWidget {
             controller.getCanVibrate == false ? 'سماح' : 'منع',
             isUseFontSizePrefs: false,
             fontSize: 15.9,
-            fontFamily: 'pfd',
-            fontWeight: FontWeight.w100,
           ),
           onTap: controller.getCanVibrate ? controller.runVibrate : null,
           icon: Icons.vibration,

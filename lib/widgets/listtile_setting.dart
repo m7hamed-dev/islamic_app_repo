@@ -52,8 +52,6 @@ class ListTileSetting extends StatelessWidget {
           title,
           isUseFontSizePrefs: false,
           fontSize: Constants.fontSizeForSettingsTxt,
-          fontFamily: 'pfd',
-          fontWeight: FontWeight.bold,
         ),
         subtitle: subtitle,
       ),

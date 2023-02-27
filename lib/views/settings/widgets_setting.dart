@@ -27,7 +27,6 @@ class BtnGoToAboutDeveloper extends StatelessWidget {
         'مشاركة التطبيق',
         isUseFontSizePrefs: false,
         fontSize: 22.9,
-        fontFamily: 'pfd',
         color: Colors.white,
       ),
       onPressed: () {

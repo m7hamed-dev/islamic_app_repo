@@ -45,7 +45,6 @@ class CardSurah extends StatelessWidget {
             surahModel.title,
             isUseFontSizePrefs: false,
             fontSize: 13.0,
-            fontWeight: FontWeight.w500,
           ),
           leading: CircleAvatar(
             backgroundColor: Theme.of(context).primaryColor.withOpacity(.09),
@@ -53,7 +52,6 @@ class CardSurah extends StatelessWidget {
               '${index + 1} ',
               isUseFontSizePrefs: false,
               fontSize: 15.0,
-              fontWeight: FontWeight.w500,
               textAlign: TextAlign.center,
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/styles/theme_controller.dart';
+import 'package:quran/styles/txt_style.dart';
 import 'package:quran/views/settings/settings_controller.dart';
 
 class Txt extends StatelessWidget {
@@ -12,8 +13,6 @@ class Txt extends StatelessWidget {
     this.isUseFontSizePrefs = true,
     this.fontSize,
     this.textAlign,
-    this.fontWeight,
-    this.fontFamily,
   }) : super(key: key);
   //
   final String data;
@@ -21,14 +20,12 @@ class Txt extends StatelessWidget {
   final bool? isUseFontSizePrefs;
   final double? fontSize;
   final TextAlign? textAlign;
-  final FontWeight? fontWeight;
-  final String? fontFamily;
   //
   @override
   Widget build(BuildContext context) {
     //
     return Consumer<SettingsController>(
-      builder: (context, _controller, _) {
+      builder: (context, controller, _) {
         return Text(
           data,
           // ' ' + data + ' ',
@@ -36,15 +33,20 @@ class Txt extends StatelessWidget {
           // maxLines: 10,
           // overflow: TextOverflow.fade,
           textAlign: textAlign,
-          style: TextStyle(
+          style: maraiBold.copyWith(
             fontSize:
-                isUseFontSizePrefs == false ? fontSize : _controller.fontSize,
-            // fontFamily: 'tajawal',
-            fontFamily: 'dinn-reg',
-            // fontFamily: fontFamily ?? _controller.fontType,
+                isUseFontSizePrefs == false ? fontSize : controller.fontSize,
             color: context.watch<ThemeController>().txtColor(context, color),
-            fontWeight: fontWeight,
           ),
+          // style: TextStyle(
+          //   fontSize:
+          //       isUseFontSizePrefs == false ? fontSize : controller.fontSize,
+          //   // fontFamily: 'tajawal',
+          //   fontFamily: 'dinn-reg',
+          //   // fontFamily: fontFamily ?? _controller.fontType,
+          //   color: context.watch<ThemeController>().txtColor(context, color),
+          //   fontWeight: fontWeight,
+          // ),
         );
       },
     );

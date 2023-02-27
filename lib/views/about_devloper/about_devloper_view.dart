@@ -32,7 +32,6 @@ class AboutDeveloperView extends StatelessWidget {
             isUseFontSizePrefs: false,
             fontSize: 18.9,
             textAlign: TextAlign.center,
-            fontFamily: 'DroidKufi',
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
@@ -41,7 +40,6 @@ class AboutDeveloperView extends StatelessWidget {
               isUseFontSizePrefs: false,
               fontSize: 18.9,
               textAlign: TextAlign.center,
-              fontFamily: 'DroidKufi',
             ),
           ),
           // Image.asset('assets/logo.png'),
@@ -51,8 +49,6 @@ class AboutDeveloperView extends StatelessWidget {
               'moh94syed@gmail.com',
               isUseFontSizePrefs: false,
               fontSize: 18.9,
-              // textAlign: TextAlign.center,
-              fontFamily: 'DroidKufi',
             ),
             icon: Icons.email_rounded,
           ),
@@ -63,7 +59,6 @@ class AboutDeveloperView extends StatelessWidget {
               'مشاركة التطبيق',
               isUseFontSizePrefs: false,
               fontSize: 22.9,
-              fontFamily: 'pfd',
               color: Colors.white,
             ),
             onPressed: () {

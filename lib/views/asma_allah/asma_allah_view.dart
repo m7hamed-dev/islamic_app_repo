@@ -61,7 +61,7 @@ class _AsmaAllahViewState extends State<AsmaAllahView> {
       return Scaffold(
         appBar: AppBar(
           title: const AppBarTitle('أسماء الله الحسني'),
-          shape: CustomAppBarShape(),
+          // shape: CustomAppBarShape(),
           leading: const IconLeading(),
         ),
         body: isLoading
@@ -89,7 +89,6 @@ class _AsmaAllahViewState extends State<AsmaAllahView> {
                                 names[index].name,
                                 isUseFontSizePrefs: false,
                                 fontSize: 26.0,
-                                fontWeight: FontWeight.bold,
                               ),
                               const SizedBox(height: 10.0),
                               Txt(

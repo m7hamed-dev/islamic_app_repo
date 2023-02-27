@@ -5,7 +5,6 @@ import 'package:quran/global/depency_injection.dart';
 import 'package:quran/widgets/btn.dart';
 import 'package:quran/widgets/icon_settings.dart';
 import 'package:quran/widgets/icon_share.dart';
-import '../../global/custom_app_bar_shape.dart';
 import '../../widgets/app_bar_title.dart';
 import '../../widgets/icon_leading.dart';
 import '../../widgets/txt.dart';
@@ -78,7 +77,7 @@ class _QuizScreenState extends State<QuiezView>
           const IconSettings(),
           _question.isEmpty ? const SizedBox() : IconShare(text: _question)
         ],
-        shape: CustomAppBarShape(),
+        // shape: CustomAppBarShape(),
         leading: const IconLeading(),
       ),
       body: Body(animationController: animationController),
