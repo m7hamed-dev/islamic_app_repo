@@ -25,11 +25,9 @@ Future<void> main() async {
 
   /// init local stoage
   await LocalStorage.init();
-  // await LocalStorage.clearPrefs();
   const String _locale = 'ar';
   //
   HijriCalendar.setLocal(_locale);
-  // final _db =await DbHelper.init(); _db.delete('favorits_table');
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SAU')],

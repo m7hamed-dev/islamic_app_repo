@@ -69,9 +69,6 @@ class Constants {
       create: (_) => ThemeController(),
     ),
 
-    // ChangeNotifierProvider<DbHelper>(
-    //   create: (_) => DbHelper(),
-    // ),
     ChangeNotifierProvider<HomeController>(
       create: (_) => HomeController(),
     ),
