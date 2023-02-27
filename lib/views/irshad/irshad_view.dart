@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/widgets/icon_leading.dart';
 import 'package:quran/widgets/icon_show_bottomnavigation.dart';
 import 'package:quran/widgets/navigation_bottom_settings.dart';
-import '../../global/custom_app_bar_shape.dart';
 import '../../widgets/app_bar_title.dart';
 import 'listview_irshad.dart';
 

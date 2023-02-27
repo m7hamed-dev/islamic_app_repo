@@ -9,9 +9,9 @@ class SliderChangeSizeFont extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<SettingsController>(
-      builder: (context, _controller, _) {
+      builder: (context, controller, _) {
         return ListTileSetting(
-          title: 'حجم الخط ${_controller.fontSize}',
+          title: 'حجم الخط ${controller.fontSize}',
           subtitle: Row(
             children: [
               Expanded(
@@ -19,9 +19,9 @@ class SliderChangeSizeFont extends StatelessWidget {
                   min: 12.0,
                   max: 24.0,
                   divisions: 4,
-                  value: _controller.fontSize,
-                  label: _controller.fontSize.truncate().toString(),
-                  onChanged: _controller.changeFontSize,
+                  value: controller.fontSize,
+                  label: controller.fontSize.truncate().toString(),
+                  onChanged: controller.changeFontSize,
                   activeColor: Theme.of(context).primaryColor,
                 ),
               ),

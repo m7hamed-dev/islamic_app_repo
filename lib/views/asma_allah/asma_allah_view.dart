@@ -13,7 +13,6 @@ import 'package:quran/widgets/fitted_back_img.dart';
 import 'package:quran/widgets/icon_leading.dart';
 import 'package:quran/widgets/txt.dart';
 import '../../animation/bottom_animation.dart';
-import '../../global/custom_app_bar_shape.dart';
 import 'asma_allah_model.dart';
 
 class AsmaAllahView extends StatefulWidget {

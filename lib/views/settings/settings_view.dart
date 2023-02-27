@@ -10,11 +10,9 @@ class SettingsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('rebuild settings view ............');
     return Scaffold(
       appBar: AppBar(
         title: const AppBarTitle('الإعدادات'),
-        // shape: CustomAppBarShape(),
         leading: const IconLeading(),
       ),
       body: ListView.builder(

@@ -26,8 +26,6 @@ class SibhaDropItems extends StatelessWidget {
         valueListenable: _selectedValue,
         builder: (BuildContext context, String value, _) {
           return DropdownButton<String>(
-            // dropdownColor: Theme.of(context).primaryColor.withOpacity(.8),
-            // isDense: true,
             isExpanded: true,
             hint: Txt(
               value,
@@ -37,13 +35,8 @@ class SibhaDropItems extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(10.0)),
             items: items.map((value) {
               return DropdownMenuItem<String>(
-                child: Txt(
-                  value,
-                  isUseFontSizePrefs: false,
-                  fontSize: 22.0,
-                  // color: Colors.black,
-                ),
                 value: value,
+                child: Txt(value, isUseFontSizePrefs: false),
               );
             }).toList(),
             onChanged: (newValue) => _selectedValue.value = newValue!,
