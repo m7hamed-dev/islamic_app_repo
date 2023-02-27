@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quran/animation/transition_animation.dart';
-import 'package:quran/tools/push.dart';
-import '../../widgets/txt_trans.dart';
+import 'package:provider/provider.dart';
+import 'package:quran/animation/slide_right_page_trans.dart';
+import 'package:quran/home/widgets/custom_asset_img.dart';
+import 'package:quran/styles/custom_box_decoration.dart';
+import 'package:quran/styles/theme_controller.dart';
+import 'package:quran/widgets/txt.dart';
 
 class CardHomeItem extends StatelessWidget {
   //
@@ -10,62 +13,56 @@ class CardHomeItem extends StatelessWidget {
     required this.title,
     required this.image,
     required this.page,
-    this.isShowIcon,
-    this.icon,
     this.isTransitonFromBottomToUp,
   }) : super(key: key);
   //
   final String title;
   final String image;
   final Widget page;
-  final bool? isShowIcon;
-  final IconData? icon;
   final bool? isTransitonFromBottomToUp;
   //
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => isTransitonFromBottomToUp == true
-          ? transitionAnimation.fromBottomToTop(
-              context: context, goToPage: page)
-          : Push.to(context, page),
+      onTap: () {
+        // isTransitonFromBottomToUp == true
+        //     ? transitionAnimation.fromBottomToTop(
+        //         context: context,
+        //         goToPage: page,
+        //       )
+        //     : Push.to(context, page);
+
+        Navigator.push(
+          context,
+          SlideRightRoute(page: page),
+        );
+      },
       child: Container(
-        margin: const EdgeInsets.all(4.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Theme.of(context).primaryColor.withOpacity(.20),
-              blurRadius: 10.0,
-              spreadRadius: 2.0,
-            )
-          ],
-          borderRadius: BorderRadius.circular(4.0),
+        margin: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 5.0,
         ),
+        decoration: CustomBoxDecoraton.decoration(context),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            isShowIcon == true ? _icon() : _img(),
-            TxtTrans(
-              title,
-              isUseFontSizePrefs: false,
-              fontSize: 18.0,
+            CustomAssetImg(path: 'assets/home/$image.png'),
+            Consumer<ThemeController>(
+              builder: (context, value, _) {
+                return Txt(
+                  title,
+                  isUseFontSizePrefs: false,
+                  fontSize: 13.0,
+                  // color: value.isDarkTheme
+                  //     ? HexColor('#ffffff')
+                  //     : Theme.of(context).primaryColor,
+                );
+              },
             ),
           ],
         ),
       ),
     );
   }
-
-  Image _img() => Image.asset(
-        'assets/$image',
-        width: 60.0,
-        height: 60.0,
-      );
-
-  Icon _icon() => Icon(
-        icon,
-        size: 60.0,
-        color: Colors.red[900],
-      );
 }

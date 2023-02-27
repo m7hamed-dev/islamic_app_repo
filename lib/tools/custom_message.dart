@@ -13,8 +13,8 @@ class CustomMessage {
     //
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        backgroundColor: backgroundColor,
-        content: content ?? const SizedBox(width: 0.0, height: 0.0),
+        backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
+        content: content ?? const SizedBox(),
       ),
     );
   } //
@@ -35,13 +35,5 @@ class CustomMessage {
         ),
       ),
     );
-  }
-
-  static void showCongratuldationsSnackBar(BuildContext context, String message,
-      {Color? backgroundColor, int? countTsbih}) {
-    // if count == 90 then show snackbar
-    if (countTsbih != null && countTsbih == 90) {
-      showSnackBarGlobal(context, message);
-    }
   }
 }

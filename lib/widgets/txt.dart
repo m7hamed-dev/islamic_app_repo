@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/views/settings/settings_controller.dart';
 
 class Txt extends StatelessWidget {
+  //
   const Txt(
     this.data, {
     Key? key,
@@ -11,6 +13,7 @@ class Txt extends StatelessWidget {
     this.fontSize,
     this.textAlign,
     this.fontWeight,
+    this.fontFamily,
   }) : super(key: key);
   //
   final String data;
@@ -19,22 +22,31 @@ class Txt extends StatelessWidget {
   final double? fontSize;
   final TextAlign? textAlign;
   final FontWeight? fontWeight;
+  final String? fontFamily;
   //
   @override
   Widget build(BuildContext context) {
     //
-    return Text(
-      data,
-      // softWrap: true,
-      // textAlign: textAlign ?? TextAlign.center,
-      style: TextStyle(
-        fontSize: isUseFontSizePrefs == false
-            ? fontSize
-            : context.watch<SettingsController>().fontSize,
-        fontFamily: context.watch<SettingsController>().fontType,
-        color: color ?? Theme.of(context).primaryColor,
-        fontWeight: fontWeight,
-      ),
+    return Consumer<SettingsController>(
+      builder: (context, _controller, _) {
+        return Text(
+          data,
+          // ' ' + data + ' ',
+          // softWrap: true,
+          // maxLines: 10,
+          // overflow: TextOverflow.fade,
+          textAlign: textAlign,
+          style: TextStyle(
+            fontSize:
+                isUseFontSizePrefs == false ? fontSize : _controller.fontSize,
+            // fontFamily: 'tajawal',
+            fontFamily: 'dinn-reg',
+            // fontFamily: fontFamily ?? _controller.fontType,
+            color: context.watch<ThemeController>().txtColor(context, color),
+            fontWeight: fontWeight,
+          ),
+        );
+      },
     );
   }
 }

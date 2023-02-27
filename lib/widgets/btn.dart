@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quran/global/depency_injection.dart';
+import 'package:quran/tools/screen_util.dart';
 
 class Btn extends StatelessWidget {
   const Btn({
@@ -25,18 +27,18 @@ class Btn extends StatelessWidget {
   //
   @override
   Widget build(BuildContext context) {
+    //
     return Container(
       height: height,
-      width: width,
-      // alignment: Alignment.center,
-      // width: width ?? ScreenUtil.getWidth(context),
+      width: width ?? ScreenUtil.getWidth(context),
       margin: margin,
       padding: padding,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: elevation ?? 0.0,
-          primary: color ?? Colors.green[700],
-          // primary: Theme.of(context).primaryColorDark,
+          primary: DI.themeController(context, isListen: true).isDarkTheme
+              ? Colors.teal
+              : DI.primaryColor(context).withOpacity(.8),
           padding: padding,
           shape: shape,
         ),

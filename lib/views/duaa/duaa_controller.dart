@@ -6,38 +6,38 @@ class DuaaController extends ChangeNotifier {
   DuaaController() {
     loadAllDuaa();
   }
-  List<DuaaModel> _duaaModel = [];
-  List<DuaaModel> searchDuaaModel = [];
-  List<DuaaModel> get getListDuaa => _duaaModel;
+  List<DuaaModel> _categories = [];
+  List<DuaaModel> get categories => _categories;
   //
   Future<void> loadAllDuaa() async {
     String jsonString = await rootBundle.loadString('assets/json/duaa.json');
     final duaaModel = duaaModelFromJson(jsonString);
-    searchDuaaModel = _duaaModel = duaaModel;
+    _categories = duaaModel;
     notifyListeners();
   }
 
   String valueDuaa = '';
   //
-  void search(String value) {
-    valueDuaa = value;
-    searchDuaaModel = value.isNotEmpty
-        //
-        ? _duaaModel.where((DuaaModel duaa) {
-            if (duaa.type.contains(value)) {
-              return true;
-            }
-            return false;
-          }).toList()
-        : _duaaModel;
-    notifyListeners();
-  }
+
+  int _currentCounter = 0;
+  int get currentCounter => _currentCounter;
 
   ///
   void decrement(Detail detail) {
     if (detail.count > 0) {
+      _currentCounter = detail.count;
       detail.count--;
       notifyListeners();
     }
   }
+
+  // late Detail category;
+  // late String categoryName;
+
+  // ///
+  // void selectedSingleCategory(int index) {
+  //   category = _categories[index].details[index];
+  //   categoryName = _categories[index].type;
+  //   notifyListeners();
+  // }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:quran/tools/push.dart';
+import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/txt.dart';
 import 'zkat_controller.dart';
 
@@ -8,8 +9,9 @@ class ZkatView extends StatelessWidget {
   const ZkatView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: ListViewCategoryZkat(),
+    return Scaffold(
+      appBar: AppBar(),
+      body: const ListViewCategoryZkat(),
     );
   }
 }
@@ -20,9 +22,7 @@ class CalcZkatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final zkatController = context.watch<ZkatController>();
-    //
     return Scaffold(
-      // title: zkatController.pageTitle,
       body: zkatController.contentPage(index),
     );
   }
@@ -40,15 +40,12 @@ class ListViewCategoryZkat extends StatelessWidget {
       ),
       itemCount: ZkatController().categories.length,
       itemBuilder: (context, index) {
-        return InkWell(
+        return CustomCard(
           onTap: () => Push.to(context, CalcZkatView(index: index)),
-          child: Container(
-            margin: const EdgeInsets.all(5.0),
-            alignment: Alignment.center,
-            child: Txt(
-              ZkatController().categories[index],
-              color: Colors.black,
-            ),
+          child: Txt(
+            ZkatController().categories[index],
+            isUseFontSizePrefs: false,
+            fontSize: 16.0,
           ),
         );
       },

@@ -1,137 +1,119 @@
 import 'package:flutter/material.dart';
-import 'package:quran/tools/keys.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:quran/storage/local_storage.dart';
 
 class ThemeController extends ChangeNotifier {
   // constructor
   ThemeController() {
-    // getTheme();
+    getThemeIndex();
+    changeThemeColor(selectedIndexOfColor);
   }
-  // ThemeData initTheme = ThemeData.light();
-  bool isDark = false;
-  //
-  // void svaeTheme(bool value) {
-  //   isDark = value;
-  //   initTheme = multiTheme(isDark);
-  //   notifyListeners();
-  //   LocalStorage.saveTheme(isDark: isDark);
-  // }
 
-  // void getTheme() {
-  //   isDark = LocalStorage.getValueOfThemePrfs();
-  //   svaeTheme(isDark);
-  // }
-
-  final List<String> themeTypes = <String>[Keys.light, Keys.dark];
   //
   final List<Color> colors = const <Color>[
+    Color.fromARGB(255, 63, 10, 0),
     Color.fromARGB(255, 63, 10, 6),
-    Color.fromARGB(255, 3, 47, 5),
-    Color.fromARGB(255, 16, 14, 16),
+    Color.fromARGB(255, 36, 33, 36),
     Color.fromARGB(255, 111, 83, 40),
-    Color.fromARGB(255, 116, 10, 81),
-    Color.fromARGB(255, 247, 182, 2),
+    Color.fromARGB(255, 103, 60, 12),
+    Color.fromARGB(255, 198, 13, 136),
+    Color.fromARGB(255, 165, 16, 153),
+    Color.fromARGB(255, 205, 151, 5),
+    Color.fromARGB(255, 205, 151, 90),
+    Color.fromARGB(255, 22, 89, 144),
+    Color.fromARGB(255, 6, 58, 101),
+    Color.fromARGB(255, 13, 162, 7),
+    Color.fromARGB(255, 8, 138, 4),
+    Color.fromARGB(255, 0, 161, 179),
+    // Color.fromARGB(255, 22, 169, 227),
   ];
 
-  void changeThemeMode(int index) {
-    debugPrint('index = $index');
-    primaryColor = colors[index];
-    if (index == 0) {
-      isDark = false;
-      //
-      initTheme = ThemeData(
-          primaryColor: primaryColor,
-          appBarTheme: AppBarTheme(
-            elevation: 10.0,
-            centerTitle: true,
-            backgroundColor: primaryColor,
-            // color: Colors.white,
-          ),
-          brightness: Brightness.dark,
-          iconTheme: IconThemeData(
-            color: primaryColor,
-          ));
-    } else {
-      isDark = true;
-      //
-      initTheme = ThemeData(
-          // primaryColor: primaryColor,
-          appBarTheme: AppBarTheme(
-            elevation: 10.0,
-            centerTitle: true,
-            // backgroundColor: primaryColor,
-            // color: Colors.white,
-          ),
-          brightness: Brightness.light,
-          iconTheme: IconThemeData(
-              // color: primaryColor,
-              ));
-    }
-    notifyListeners();
+  int selectedIndexOfColor = 0;
+  //
+  void getThemeIndex() {
+    selectedIndexOfColor = LocalStorage.getIndex('theme_index_key');
   }
 
-  void changeThemeColor(int index) {
-    primaryColor = colors[index];
-    //
-    initTheme = ThemeData(
-        primaryColor: primaryColor,
-        appBarTheme: AppBarTheme(
-          elevation: 10.0,
-          centerTitle: true,
-          backgroundColor: primaryColor,
-          // color: Colors.white,
-        ),
-        brightness: Brightness.light,
-        iconTheme: IconThemeData(
-          color: primaryColor,
-        ));
-    notifyListeners();
-  }
+  void saveThemeIndex(int index) =>
+      LocalStorage.saveIndex('theme_index_key', selectedIndexOfColor);
 
+  ThemeData initTheme = ThemeData();
+  Brightness _brightness = Brightness.light;
   Color primaryColor = Colors.orange;
   //
-  ThemeData initTheme = ThemeData();
-  // const Color primaryColor = Constants.myPrimaryColor;
+  bool isLightTheme = false;
   //
-  // ThemeData initTheme = ThemeData(
-  //   primaryColor: primaryColor(),
-  //   scaffoldBackgroundColor: primaryColor,
-  // ).copyWith(
-  //   primaryColor: primaryColor,
-  //   appBarTheme: AppBarTheme(
-  //     elevation: 0.0,
-  //     centerTitle: true,
-  //     backgroundColor: primaryColor,
-  //     // color: Colors.white,
-  //   ),
-  //   scaffoldBackgroundColor: primaryColor,
-  //   // scaffoldBackgroundColor: const Color(0xFFE48873),
-  //   textTheme: const TextTheme(
-  //     bodyText1: TextStyle(
-  //       color: Colors.black,
-  //     ),
-  //   ),
-  // );
+  void changeThemeColor(int index) {
+    //
+    try {
+      if (index == 100) {
+        _brightness = Brightness.dark;
+        selectedIndexOfColor = index;
+        initTheme = _darkTheme();
+        notifyListeners();
+        isLightTheme = false;
+        saveThemeIndex(selectedIndexOfColor);
+      } else {
+        primaryColor = colors[index];
+        selectedIndexOfColor = index;
+        _brightness = Brightness.light;
+        initTheme = _lightTheme();
+        notifyListeners();
+        isLightTheme = true;
+        saveThemeIndex(selectedIndexOfColor);
+      }
+    } catch (e) {
+      primaryColor = colors[0];
+      selectedIndexOfColor = 0;
+      _brightness = Brightness.light;
+      initTheme = _lightTheme();
+      notifyListeners();
+      isLightTheme = true;
+      saveThemeIndex(selectedIndexOfColor);
+      debugPrint('catch error on changeThemeColor $e');
+    }
+    // debugPrint('selectedIndexOfColor = $selectedIndexOfColor');
+  }
 
-  // ThemeData multiTheme(bool isDark) {
-  //   if (isDark == false) {
-  //     // svaeTheme(false);
-  //     notifyListeners();
-  //     return ligthTheme;
-  //   }
-  //   return ThemeData.dark().copyWith(
-  //     primaryColor: isDark ? const Color(0xFF1E1E2C) : HexColor('A0522D'),
-  //     // primaryColor: isDark ? const Color(0xFF1E1E2C) : HexColor('008A00'),
-  //     scaffoldBackgroundColor: isDark ? const Color(0xFF1A1627) : Colors.white,
-  //     appBarTheme: AppBarTheme(
-  //       color: isDark ? null : Colors.red,
-  //       elevation: 0.0,
-  //     ),
-  //     textTheme: TextTheme(
-  //       bodyText1: TextStyle(
-  //         color: isDark ? Colors.white : Colors.black,
-  //       ),
-  //     ),
-  //   );
-  // }
+  ThemeData _lightTheme() {
+    return ThemeData(
+      primaryColor: primaryColor,
+      appBarTheme: AppBarTheme(
+        // color: Colors.white,
+        elevation: 0.0,
+        centerTitle: true,
+        backgroundColor: primaryColor,
+      ),
+      brightness: _brightness,
+      iconTheme: IconThemeData(
+        color: primaryColor,
+      ),
+    );
+  }
 
+  ThemeData _darkTheme() {
+    return ThemeData(
+      scaffoldBackgroundColor: HexColor('##1c2939'),
+      appBarTheme: AppBarTheme(
+        color: HexColor('#16202a'),
+        elevation: 0.0,
+        centerTitle: true,
+      ),
+      brightness: _brightness,
+      iconTheme: IconThemeData(color: primaryColor),
+    );
+  }
+
+  bool get isDarkTheme => selectedIndexOfColor == 100 ? true : false;
+  //
+  Color txtColor(BuildContext context, Color? color) {
+    if (color != null) {
+      return color;
+    }
+    if (isDarkTheme) {
+      return HexColor('#ffffff');
+      return HexColor('#adb6bf');
+    }
+    return Theme.of(context).primaryColor;
+  }
 }

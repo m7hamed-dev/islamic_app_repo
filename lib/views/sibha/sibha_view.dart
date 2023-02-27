@@ -1,131 +1,115 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/styles/txt_style.dart';
-import 'package:quran/tools/custom_message.dart';
+import 'package:quran/animation/bottom_animation.dart';
+import 'package:quran/global/depency_injection.dart';
 import 'package:quran/tools/custom_share.dart';
 import 'package:quran/tools/my_dialog.dart';
-import 'package:quran/tools/screen_util.dart';
 import 'package:quran/views/sibha/sibha_controller.dart';
-import 'package:quran/widgets/btn.dart';
-import 'package:quran/widgets/txt.dart';
-import 'package:sleek_circular_slider/sleek_circular_slider.dart';
+import 'package:quran/views/sibha/sibha_drop_items.dart';
+import 'package:quran/widgets/app_bar_title.dart';
+import 'package:quran/widgets/icon_switch_vibrate.dart';
+import '../../global/custom_app_bar_shape.dart';
+import '../../global/vibrate_apis.dart';
+import '../../widgets/icon_leading.dart';
+import 'sibha_body.dart';
 
-class SibhaView extends StatelessWidget {
+class SibhaView extends StatefulWidget {
   const SibhaView({Key? key}) : super(key: key);
 
+  @override
+  State<SibhaView> createState() => _SibhaViewState();
+}
+
+class _SibhaViewState extends State<SibhaView> {
+  @override
+  void initState() {
+    ///
+    _sibha = Provider.of<SibhaController>(context, listen: false);
+    _vibrateAPIsProvider =
+        Provider.of<VibrateAPIsProvider>(context, listen: false);
+
+    ///
+    super.initState();
+  }
+
+  late SibhaController _sibha;
+  late VibrateAPIsProvider _vibrateAPIsProvider;
+
+  ///
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: InkWell(
-                    child: const Icon(Icons.add),
-                    // child: const Text('add your custom zikr'),
-                    onTap: () {
-                      MyDialog.addYourZikr(context);
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              customBorder: Border.all(
-                width: 30.0,
-              ),
-              onTap: () => CustomShare.shareTxt(
-                'sibha',
-                subject: context.read<SibhaController>().count.toString(),
-                // 'qura app',
-              ),
-              child: const Icon(Icons.share),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: context.read<SibhaController>().resetCount,
-              child: const Icon(
-                Icons.restore,
-              ),
-            ),
-          ),
-        ],
+        title: const AppBarTitle('السبحه '),
+        actions: const [Actions()],
+        shape: CustomAppBarShape(),
+        leading: const IconLeading(),
       ),
-      body: observalbleCounterWidget(context),
+      body: InkWell(
+        splashColor: DI.primaryColor(context).withOpacity(.08),
+        onTap: () {
+          _sibha.incrementCount(context);
+          _vibrateAPIsProvider.runVibrate();
+        },
+        child: Column(
+          children: const [
+            SibhaDropItems(),
+            SibhaBody(),
+          ].map((e) {
+            return BottomAnimator(
+              child: e,
+              time: const Duration(milliseconds: 300),
+            );
+          }).toList(),
+        ),
+      ),
+      bottomNavigationBar: const BottomAnimator(
+        time: Duration(milliseconds: 800),
+        child: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: IconSwitchVibrate(),
+        ),
+      ),
     );
   }
+}
 
-  Consumer observalbleCounterWidget(BuildContext context) {
-    return Consumer<SibhaController>(
-      builder: (BuildContext context, SibhaController value, Widget? child) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Txt(
-                  value.lastZikr,
-                  color: Colors.black,
-                  isUseFontSizePrefs: false,
-                  fontSize: 90,
-                ),
-                SleekCircularSlider(
-                  min: 0,
-                  max: double.parse(value.count.toString()) + 30,
-                  initialValue: double.parse(value.count.toString()),
-                  appearance: CircularSliderAppearance(
-                    customWidths: CustomSliderWidths(progressBarWidth: 10),
-                    customColors: CustomSliderColors(
-                      // dotColor: Theme.of(context).primaryColor,
-                      progressBarColor: Theme.of(context).primaryColor,
-                      trackColor: Colors.pink,
-                    ),
-                    // spinnerDuration: 400,
-                    animDurationMultiplier: 2.0,
-                  ),
-                  onChange: (double value) {},
-                  onChangeStart: (double startValue) {},
-                  onChangeEnd: (double endValue) {},
-                  innerWidget: (double _) => Center(
-                    child: Text(
-                      value.count.toString(),
-                      style: TxtStyle.customStyle(fontSize: 20.0),
-                    ),
-                  ),
-                ),
-                // SizedBox(height: ScreenUtil.getHeight(context) * 0.20),
-                Btn(
-                  shape: const CircleBorder(),
-                  padding: const EdgeInsets.all(10.0),
-                  color: Theme.of(context).primaryColor,
-                  onPressed: () {
-                    value.incrementCount();
-                    CustomMessage.showCongratuldationsSnackBar(
-                      context,
-                      'dont give up !!',
-                      countTsbih: value.count,
-                    );
-                  },
-                  child: Icon(
-                    Icons.touch_app_sharp,
-                    size: ScreenUtil.isMobile(context) ? 40.0 : 90.0,
-                  ),
-                ),
-              ],
-            ),
+class Actions extends StatelessWidget {
+  const Actions({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        InkWell(
+          child: const Icon(Icons.add),
+          onTap: () {
+            MyDialog.addYourZikr(context);
+          },
+        ),
+        InkWell(
+          customBorder: Border.all(
+            width: 30.0,
           ),
+          onTap: () => CustomShare.shareTxt(
+            'sibha',
+            subject: context.read<SibhaController>().count.toString(),
+          ),
+          child: const Icon(Icons.share),
+        ),
+        InkWell(
+          onTap: context.read<SibhaController>().resetCount,
+          child: const Icon(
+            Icons.restore,
+          ),
+        ),
+      ].map((e) {
+        return Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: e,
         );
-      },
+      }).toList(),
     );
   }
 }

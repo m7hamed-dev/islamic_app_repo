@@ -4,7 +4,9 @@ TransitionAnimation transitionAnimation = TransitionAnimation();
 
 class TransitionAnimation {
   //
-  fromBottomToTop({required BuildContext context, required Widget goToPage}) {
+  void fromBottomToTop(
+      {required BuildContext context, required Widget goToPage}) {
+    //
     Navigator.of(context).push(
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => goToPage,
@@ -13,7 +15,8 @@ class TransitionAnimation {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           var begin = const Offset(0.0, 1.0);
           var end = Offset.zero;
-          var curve = Curves.ease;
+          var curve = Curves.linearToEaseOut;
+          // var curve = Curves.ease;
           var tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
           return SlideTransition(
@@ -51,7 +54,7 @@ class TransitionAnimation {
     ));
   }
 
-  circleRevalPushReplacement(
+  void circleRevalPushReplacement(
       {required BuildContext context, required Widget goToPage}) {
     //
     Navigator.of(context).pushReplacement(PageRouteBuilder(
@@ -81,10 +84,13 @@ class TransitionAnimation {
 }
 
 class CircleRevealClipper extends CustomClipper<Path> {
-  final center;
-  final radius;
+  final Offset center;
+  final double radius;
 
-  CircleRevealClipper({this.center, this.radius});
+  CircleRevealClipper({
+    required this.center,
+    required this.radius,
+  });
 
   @override
   Path getClip(Size size) {

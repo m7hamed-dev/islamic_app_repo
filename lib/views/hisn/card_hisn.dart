@@ -5,8 +5,8 @@ import 'package:quran/widgets/txt.dart';
 import 'hisn_model.dart';
 import 'listview_title_hisn_view.dart';
 
-class CardHusn extends StatelessWidget {
-  const CardHusn({
+class CardHisn extends StatelessWidget {
+  const CardHisn({
     Key? key,
     required this.title,
     required this.mText,
@@ -18,18 +18,19 @@ class CardHusn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => Push.to(context, ListViewTitleHisnView(listMTxt: mText)),
+      onTap: () => Push.to(
+          context,
+          ListViewTitleHisnView(
+            title: title,
+            listMTxt: mText,
+          )),
       child: CustomCard(
-        margin: const EdgeInsets.all(5.0),
-        padding: const EdgeInsets.all(5.0),
-        child: ListTile(
-          // contentPadding: EdgeInsets.zero,
-          title: Txt(
-            title,
-            // style: TxtStyle.customStyle(),
-          ),
-          // subtitle: Txt('repeat $repeat'),
-        ),
+        child: Txt(title,
+
+
+
+            isUseFontSizePrefs: false,
+            ),
       ),
     );
   }

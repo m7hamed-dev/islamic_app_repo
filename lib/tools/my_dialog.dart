@@ -4,17 +4,20 @@ import 'package:quran/views/sibha/sibha_controller.dart';
 import 'package:quran/widgets/btn.dart';
 import 'package:quran/widgets/input.dart';
 
+import '../widgets/txt.dart';
+
 class MyDialog {
   static String _zikr = '';
   static Future<void> addYourZikr(BuildContext context) async {
-    final sibhaController = context.read<SibhaController>();
+    // final sibhaController = context.read<SibhaController>();
     return await showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text(
-            'add',
-            style: TextStyle(color: Colors.black),
+          title: const Txt(
+            'اضافة زكر',
+            isUseFontSizePrefs: false,
+            fontSize: 15.0,
           ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -24,12 +27,13 @@ class MyDialog {
                 onChanged: (value) {
                   _zikr = value;
                 },
+                hintText: 'اكتبه هنا',
               ),
               const SizedBox(height: 20.0),
               Btn(
-                child: const Text('add'),
+                child: const Text('اضافة'),
                 onPressed: () async {
-                  sibhaController.saveCustomZikrInLocal(_zikr);
+                  context.read<SibhaController>().saveCustomZikrInLocal(_zikr);
                   Navigator.pop(context);
                 },
               ),

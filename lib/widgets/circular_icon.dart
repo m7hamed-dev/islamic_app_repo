@@ -1,38 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:quran/global/depency_injection.dart';
 
 class CircleIcon extends StatelessWidget {
   const CircleIcon({
     Key? key,
     required this.icon,
-    this.colorCircle,
+    this.sizeIcon,
     this.colorIcon,
-    this.width,
-    this.height,
-    this.size,
+    // this.width,
+    // this.height,
+    // this.size,
   }) : super(key: key);
   final IconData icon;
   final Color? colorIcon;
-  final Color? colorCircle;
-  final double? width;
-  final double? height;
-  final double? size;
+  final double? sizeIcon;
+  //
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      padding: const EdgeInsets.all(5.0),
-      margin: const EdgeInsets.all(3.0),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: colorCircle ?? Colors.red.shade100,
-        shape: BoxShape.circle,
-      ),
-      child: Icon(
-        icon,
-        color: colorIcon,
-        size: size,
-      ),
+    return Icon(
+      icon,
+      color: DI.themeController(context, isListen: true).isDarkTheme
+          ? Colors.white
+          : Theme.of(context).primaryColor,
+      size: sizeIcon ?? 24.0,
     );
   }
 }

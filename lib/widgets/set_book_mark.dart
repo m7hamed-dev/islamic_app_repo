@@ -16,7 +16,11 @@ class SetBookMark extends StatelessWidget {
               LocalStorage.getLastReadingQuranPage(),
             );
         //
-        Push.to(context, const QuranView());
+        Push.to(
+            context,
+            const QuranView(
+              surahName: '',
+            ));
       },
       icon: const Icon(
         Icons.bookmark_border_rounded,

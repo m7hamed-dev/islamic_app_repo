@@ -3,46 +3,58 @@ class Utils {
     String path = '';
     //
     switch (name) {
-      case 'Imsak':
-        path = 'subuh';
-        break;
-      case 'SunRise':
+      // case 'Imsak':
+      //   path = 'subuh';
+      //   break;
+      case 'sunrise':
         path = 'sunrise';
         break;
-      case 'Shubuh':
+      case 'shubuh':
         path = 'subuh';
         break;
-      case 'Dhuhur':
+      //
+      case 'dhuhr':
         path = 'zhur';
         break;
-      case 'Ashar':
+      //
+      case 'asr':
         path = 'asr';
         break;
-      case 'SunSet':
-        path = 'sunset';
-        break;
-      case 'Maghrib':
+      // //
+      // case 'sunSet':
+      //   path = 'sunset';
+      //   break;
+      //
+      case 'maghrib':
         path = 'magrib';
         break;
-      case 'Isya':
+      //
+      case 'isha':
         path = 'isyah';
+        break;
+      //
+      case 'fajr':
+        path = 'subuh';
     }
     return 'assets/praying_time/' + path + '.png';
   }
 
   static String translateToArabic(String word) {
     switch (word) {
-      case 'Shubuh':
+      case 'fajr':
         word = 'الصبح';
         break;
-      case 'Dhuhur':
+      case 'dhuhr':
         word = 'الظهر';
         break;
-      case 'Ashar':
+      case 'asr':
         word = 'العصر';
         break;
-      case 'المغرب':
-        word = 'subuh';
+      case 'maghrib':
+        word = 'المغرب';
+        break;
+      case 'isha':
+        word = 'العشاء';
     }
     return word;
   }

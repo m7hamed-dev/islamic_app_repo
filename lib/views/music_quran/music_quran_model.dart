@@ -1,7 +1,4 @@
-// To parse this JSON data, do
-//
-//     final quranMp3Model = quranMp3ModelFromJson(jsonString);
-
+// final quranMp3Model = quranMp3ModelFromJson(jsonString);
 import 'dart:convert';
 
 QuranMp3Model quranMp3ModelFromJson(String str) =>
@@ -47,6 +44,6 @@ class Reciter {
         rewaya: json["rewaya"],
         count: json["count"],
         letter: json["letter"],
-        suras: json["suras"] ,
+        suras: json["suras"],
       );
 }

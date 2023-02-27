@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:quran/styles/custom_box_decoration.dart';
 import 'package:quran/styles/theme_controller.dart';
+import 'package:quran/tools/push.dart';
+import 'package:quran/views/theme_view/colors_listview.dart';
 import 'package:quran/widgets/btn.dart';
-import 'package:quran/widgets/txt_trans.dart';
+import 'package:quran/widgets/txt.dart';
+
+import '../tools/constants.dart';
 
 class RowSelectColor extends StatelessWidget {
+  //
   const RowSelectColor({
     Key? key,
   }) : super(key: key);
@@ -12,53 +18,145 @@ class RowSelectColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint('RowSelectColor rebuild ..');
-    return Column(
-      children: [
-        // ligth or dark mode
-        Row(
-          children: List.generate(
-              context.read<ThemeController>().themeTypes.length, (index) {
-            return Expanded(
-              child: Btn(
+    return Consumer<ThemeController>(
+      builder: (context, _controller, _) {
+        return Container(
+          decoration: CustomBoxDecoraton.decoration(context),
+          // height: 120.0,
+          padding: const EdgeInsets.all(10.0),
+          // margin: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Txt(
+                'مظهر التطبيق',
+                isUseFontSizePrefs: false,
+                fontSize: Constants.fontSizeForSettingsTxt,
+                fontFamily: 'pfd',
+              ),
+              // const Divider(),
+              //
+              SizedBox(
                 height: 50.0,
-                onPressed: () {
-                  context.read<ThemeController>().changeThemeMode(index);
-                },
-                color: context.read<ThemeController>().colors[index],
-                padding: const EdgeInsets.all(4.0),
-                child: TxtTrans(
-                  context.read<ThemeController>().themeTypes[index],
-                  isUseFontSizePrefs: false,
-                  fontSize: 18.0,
-                  color: Colors.white,
+                child: Row(
+                  children: [
+                    //
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          _controller.changeThemeColor(
+                            1
+                            // _controller.selectedIndexOfColor,
+                          );
+                        },
+                        child: AnimatedContainer(
+                          duration: const Duration(milliseconds: 400),
+                          decoration: BoxDecoration(
+                            color:
+                                Theme.of(context).primaryColor.withOpacity(.9),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          alignment: Alignment.center,
+                          child: _controller.isLightTheme
+                              ? Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: const [
+                                    Icon(
+                                      Icons.done,
+                                      color: Colors.white,
+                                    ),
+                                    Txt(
+                                      'مضئ',
+                                      isUseFontSizePrefs: false,
+                                      fontSize: 20.0,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                )
+                              : const Txt(
+                                  'مضئ',
+                                  isUseFontSizePrefs: false,
+                                  fontSize: 20.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 15.0),
+                    //
+                    Expanded(
+                      child: InkWell(
+                        onTap: () {
+                          _controller.changeThemeColor(100);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(.9),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          alignment: Alignment.center,
+                          child: _controller.isLightTheme == false
+                              ? Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    const Icon(
+                                      Icons.done,
+                                      color: Colors.white,
+                                    ),
+                                    Txt(
+                                      'غاتم',
+                                      isUseFontSizePrefs: false,
+                                      fontSize: 20.0,
+                                      color:
+                                          _controller.selectedIndexOfColor == 100
+                                              ? Colors.white
+                                              : Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                )
+                              : Txt(
+                                  'غاتم',
+                                  isUseFontSizePrefs: false,
+                                  fontSize: 20.0,
+                                  color: _controller.selectedIndexOfColor != 100
+                                      ? Colors.white
+                                      : Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            );
-          }).toList(),
-        ),
-        const SizedBox(height: 10.0),
-        // colors
-        Visibility(
-          visible: context.read<ThemeController>().isDark == false,
-          child: Row(
-            children: List.generate(
-                context.watch<ThemeController>().colors.length, (index) {
-              return Expanded(
-                child: MaterialButton(
-                  height: 50.0,
-                  onPressed: () {
-                    context.read<ThemeController>().changeThemeColor(index);
-                  },
-                  color: context.read<ThemeController>().colors[index],
-                  // textColor: Colors.white,
-                  padding: const EdgeInsets.all(4.0),
-                  shape: const CircleBorder(),
-                ),
-              );
-            }).toList(),
+              const SizedBox(height: 10.0),
+              // if index of colors  equal 100 then hide colors
+              _controller.isLightTheme == false
+                  ? const SizedBox()
+                  : Btn(
+                      height: 40.0,
+                      onPressed: () {
+                        Push.to(
+                          context,
+                          const GridViewColors(),
+                        );
+                      },
+                      child: const Txt(
+                        'اختر لون التطبيق ',
+                        isUseFontSizePrefs: false,
+                        fontSize: 17.0,
+                        color: Colors.white,
+                      ),
+                    ),
+            ],
           ),
-        ),
-      ],
+        );
+      },
     );
   }
 }

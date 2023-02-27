@@ -2,15 +2,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalStorage {
   static late SharedPreferences _preferences;
+  //
   static Future init() async =>
       _preferences = await SharedPreferences.getInstance();
+  //
+  static SharedPreferences get instance => _preferences;
   // part font size
   static Future<void> saveFontSize({required double value}) async {
     await _preferences.setDouble('fontSize', value);
   }
 
   static double getFontSize() {
-    return _preferences.getDouble('fontSize') ?? 13.0;
+    return _preferences.getDouble('fontSize') ?? 12.0;
   }
 
   /// part theme
@@ -40,6 +43,13 @@ class LocalStorage {
   static int getLastReadingQuranPage() {
     return _preferences.getInt('reading_last_quran_page') ?? 1;
   }
+
+  /// quran last surah name
+  static Future<void> saveSurahName({required String surahName}) async {
+    await _preferences.setString('surah_name', surahName);
+  }
+
+  static String get getSurahName => _preferences.getString('surah_name') ?? '';
 
   // save custom zikr
   static Future<void> saveCusomZikr({required String zkir}) async {
@@ -80,14 +90,15 @@ class LocalStorage {
     return _preferences.getInt('last_question') ?? 0;
   }
 
-  // part font types
-  static Future<void> saveFontType({required String value}) async {
-    await _preferences.setString('fontTypeKey', value);
-  }
-
-  static String getFontType() {
-    return _preferences.getString('fontTypeKey') ?? 'pfd';
-  }
+  // // part font types
+  // static Future<void> saveFontType({required String value}) async {
+  //   debugPrint('font type = $value');
+  //   await _preferences.setString('fontTypeKey', value);
+  // }
+  //
+  // static String getFontType() {
+  //   return _preferences.getString('fontTypeKey') ?? 'pfd';
+  // }
 
   /// save and get index
   static Future<void> saveIndex(String key, int value) async {
@@ -95,12 +106,25 @@ class LocalStorage {
   }
 
   static int getIndex(String key) => _preferences.getInt(key) ?? 0;
+  static int getInt(String key) => _preferences.getInt(key) ?? 1;
 
-  // save coach maker
-  static Future<void> isShowCochMaker(String key, bool value) async {
+  /// save and get index
+  static Future<void> saveBoolean(String key, bool value) async {
     await _preferences.setBool(key, value);
   }
 
-  static bool getValueOfCochMaker(String key) =>
-      _preferences.getBool(key) ?? true;
+  static bool getBoolean(String key) => _preferences.getBool(key) ?? false;
+
+  /// index font type
+  static Future<void> saveIndexOfFontType({required int index}) async {
+    // debugPrint('save font index = $value');
+    await _preferences.setInt('index_font_type', index);
+  }
+
+  static int get getIndexFontType =>
+      _preferences.getInt('index_font_type') ?? 0;
+
+  /// switch vibrate
+
+  static clearPrefs() => _preferences.clear();
 }

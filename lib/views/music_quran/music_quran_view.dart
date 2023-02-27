@@ -59,19 +59,10 @@ class MusicQuranView extends StatelessWidget {
               itemCount:
                   context.read<MusicQuranController>().filtterReciters.length,
               itemBuilder: (BuildContext context, int index) {
-                return InkWell(
-                  onTap: () {
-                    _pushToDetailsReciterView(
-                      context: context,
-                      controller: context.read<MusicQuranController>(),
-                      index: index,
-                    );
-                  },
-                  child: CardListViewReciter(
-                    reciter: context
-                        .read<MusicQuranController>()
-                        .filtterReciters[index],
-                  ),
+                return CardListViewReciter(
+                  reciter: context
+                      .read<MusicQuranController>()
+                      .filtterReciters[index],
                 );
               },
             ),
@@ -81,18 +72,18 @@ class MusicQuranView extends StatelessWidget {
     );
   }
 
-  void _pushToDetailsReciterView({
-    required BuildContext context,
-    required MusicQuranController controller,
-    required int index,
-  }) {
-    Push.to(
-      context,
-      DetailsReciter(
-        surahList: controller.convetToListOfStrings(
-          controller.reciters[index].suras,
-        ),
-      ),
-    );
-  }
+  // void _pushToDetailsReciterView({
+  //   required BuildContext context,
+  //   required MusicQuranController controller,
+  //   required int index,
+  // }) {
+  //   Push.to(
+  //     context,
+  //     DetailsReciter(
+  //       surahList: controller.convetToListOfStrings(
+  //         controller.reciters[index].suras,
+  //       ),
+  //     ),
+  //   );
+  // }
 }

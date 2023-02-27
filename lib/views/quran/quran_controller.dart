@@ -1,32 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 import 'package:quran/storage/local_storage.dart';
-import 'package:quran/tools/constants.dart';
+
+import '../../tools/constants.dart';
 
 class QuranController extends ChangeNotifier {
-  //
-  QuranController() {
-    debugPrint('instance from');
-  }
   int currentPage = 0;
+  String currentSurahName = '';
   //
   void setCurrentPage(int page) {
     currentPage = page;
     debugPrint('currentPage :: $currentPage');
+    // notifyListeners();
+  }
+
+  void changeNightMode(bool value) {
+    // isReadingNigthMode =  value ;
+    if (isReadingNigthMode != value) {
+      return;
+    }
+    value = !value;
     notifyListeners();
   }
 
+  bool isReadingNigthMode = false;
   //
+
   Widget pdf() {
     return PDF(
       enableSwipe: true,
       swipeHorizontal: true,
       autoSpacing: false,
+      nightMode: isReadingNigthMode,
       // pageFling: false,
       // preventLinkNavigation: false,
       // pageSnap: false,
       defaultPage: currentPage,
-      fitEachPage: false,
+      fitEachPage: true,
       // nightMode: true,
       onViewCreated: (PDFViewController pdfViewController) {
         debugPrint('pdfViewController ${pdfViewController.getCurrentPage()}');
@@ -44,25 +54,23 @@ class QuranController extends ChangeNotifier {
     ).fromAsset(Constants.quranPath);
   }
 
-  // Widget pdfOnline(String url) {
-  //   // return const PDF().fromUrl(
-  //   return const PDF().fromAsset(
-  //     url,
-  //     errorWidget: (dynamic error) => Center(child: Text(error.toString())),
-  //   );
-  // }
-
   static int lastPage = 1;
 
   //
-  void saveBookMark(int page) {
+  void saveBookMark(int page, String surahName) {
+    // if (currentPage == page) {
+    //   return;
+    // }
     LocalStorage.saveReadingQuranPage(lastPage: page);
+    LocalStorage.saveSurahName(surahName: surahName);
     debugPrint('page = $page');
   }
 
   void getLastReadingPage() {
     currentPage = LocalStorage.getLastReadingQuranPage();
-    notifyListeners();
+    currentSurahName = LocalStorage.getSurahName;
+    debugPrint('getLastReadingPage() =  $currentPage');
+    // notifyListeners();
   }
 
   //
@@ -76,5 +84,4 @@ class QuranController extends ChangeNotifier {
   //   bool hasSupport = androidInfo.version.sdkInt >= 21;
   //   return hasSupport;
   // }
-
 }

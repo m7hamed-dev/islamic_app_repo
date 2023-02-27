@@ -3,10 +3,10 @@
         "question": "من هو النبي الذي كانت إحدى معجزاته العصا التي تتحول إلى حية تسعى ؟",
         "answer": 2,
         "options": [{
-                "sugge": "haroon"
+                "sugge": "هارون عليه السلام"
             },
             {
-                "sugge": "esaa"
+                "sugge": "عيسي عليه السلام"
             },
             {
                 "sugge": "موسى عليه السلام"
@@ -835,6 +835,261 @@
             },
             {
                 "sugge": "أربع حيضات"
+            }
+        ]
+    },
+    {
+        "id": 57,
+        "question": "متى فرض الصيام على المسلمين؟",
+        "answer": 1,
+        "options": [{
+                "sugge": "السنة الاولي للهجرة"
+            },
+            {
+                "sugge": "السنة الثانية للهجرة"
+            },
+            {
+                "sugge": "السنة الثالثه للهجرة"
+            }
+        ]
+    },
+    {
+        "id": 58,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 59,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 60,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 61,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 62,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 63,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 64,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 65,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 66,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 0,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 67,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 68,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 69,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 70,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 71,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            }
+        ]
+    },
+    {
+        "id": 72,
+        "question": "",
+        "answer": 1,
+        "options": [{
+                "sugge": ""
+            },
+            {
+                "sugge": ""
+            },
+            {
+                "sugge": ""
             }
         ]
     }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quran/animation/bottom_animation.dart';
+import '../../tools/constants.dart';
 import 'card_hisn.dart';
 import 'hisn_model.dart';
 
@@ -9,12 +11,16 @@ class ListviewHisn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: Constants.bouncScrollPhysics,
       itemCount: hisnList.length,
       itemBuilder: (BuildContext context, int index) {
-        return CardHusn(
-          title: hisnList[index].title,
-          // repeat: hisnList[index].repeat ?? 1,
-          mText: hisnList[index].text,
+        //
+        return BottomAnimator(
+          time: Duration(milliseconds: index * 5 + 10),
+          child: CardHisn(
+            title: hisnList[index].title,
+            mText: hisnList[index].text,
+          ),
         );
       },
     );

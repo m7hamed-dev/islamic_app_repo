@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:quran/global/future_string.dart';
+// import 'package:flutter/services.dart' show rootBundle;
 
 import 'all_surah_model.dart';
 
@@ -7,19 +8,11 @@ class SurahController extends ChangeNotifier {
   SurahController() {
     loadListSurah();
   }
-  //
   List<SurahModel> listSurah = <SurahModel>[];
   List<SurahModel> searchlistSurah = <SurahModel>[];
-  //
-  String getSurahName(int index) {
-    return '';
-    // return listSurah[index].chapters[0].nameComplex;
-  }
-
-  //
   Future<void> loadListSurah() async {
     listSurah.length = 0;
-    String jsonString = await rootBundle.loadString('assets/json/surah.json');
+    String jsonString = await FutureString.from('assets/json/surah.json');
     final allSurahModel = surahModelFromJson(jsonString);
     searchlistSurah = listSurah = allSurahModel;
     notifyListeners();

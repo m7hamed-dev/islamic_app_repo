@@ -1,14 +1,17 @@
-import 'package:assets_audio_player/assets_audio_player.dart';
+import 'dart:io';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/home/home_view.dart';
-import 'package:quran/router/app_route.dart';
 import 'package:quran/storage/local_storage.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/tools/constants.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:quran/views/quiez/quiez_view.dart';
+import 'package:http/http.dart' as http;
+import 'package:quran/views/quran/quran_online_view.dart';
+import 'package:quran/widgets/custom_card.dart';
+import 'package:quran/widgets/custom_loading.dart';
+import 'package:quran/widgets/txt.dart';
+import 'views/qari/qari_list_model.dart';
 
 // load some resources
 Future<void> initialization(BuildContext? context) async =>
@@ -17,18 +20,20 @@ Future<void> initialization(BuildContext? context) async =>
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  AssetsAudioPlayer.setupNotificationsOpenAction((notification) => true);
-  FlutterNativeSplash.removeAfter(initialization);
+
+  /// init local stoage
   await LocalStorage.init();
+  // await LocalStorage.clearPrefs();
+  const String _locale = 'ar';
+  //
+  HijriCalendar.setLocal(_locale);
   // final _db =await DbHelper.init(); _db.delete('favorits_table');
   runApp(
     EasyLocalization(
-      supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('ar', 'SA'),
-      ],
+      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SAU')],
       path: 'assets/translations',
-      fallbackLocale: const Locale('ar', 'SA'),
+      fallbackLocale: const Locale('ar', 'SAU'),
+      // fallbackLocale: const Locale('en', 'US'),
       child: MultiProvider(
         providers: Constants.providers,
         child: const MyApp(),
@@ -37,25 +42,114 @@ Future<void> main() async {
   );
 }
 
+///
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   //
+
   @override
   Widget build(BuildContext context) {
+    //
     return Consumer<ThemeController>(
       builder: (context, value, _) {
         return MaterialApp(
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
           title: Constants.appName,
           debugShowCheckedModeBanner: false,
           theme: value.initTheme,
-          onGenerateRoute: AppRoute.router,
-          // initialRoute: HomeView.pageName
-          initialRoute: QuiezView.pageName,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          home: const QuranOnlineView(),
+          // home: const CheckFirstShowScreen(),
         );
       },
+    );
+  }
+}
+
+class QariListPage extends StatefulWidget {
+  const QariListPage({Key? key}) : super(key: key);
+
+  @override
+  State<QariListPage> createState() => _QariListPageState();
+}
+
+class _QariListPageState extends State<QariListPage> {
+  final _qariList = <QariListModel>[];
+  bool _isLoading = true;
+  bool _isError = false;
+  String _error = '';
+
+  ///
+  Future _getQaris() async {
+    try {
+      final _uri = Uri.parse('https://quranicaudio.com/api/qaris');
+      final _jsonString = await http.get(_uri);
+      final _qariListModel = qariListModelFromJson(_jsonString.body);
+      for (var qari in _qariListModel) {
+        _qariList.add(qari);
+      }
+      _isLoading = false;
+      setState(() {});
+    } catch (e) {
+      if (e is SocketException) {
+        _error = 'please Check your internet ';
+      }
+      _isError = true;
+      _isLoading = false;
+      setState(() {});
+    }
+  }
+
+  @override
+  void initState() {
+    _getQaris();
+    super.initState();
+  }
+
+  ///
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: _isLoading
+          ? const CustomLoading()
+          : _isError
+              ? Center(
+                  child: Txt(
+                    _error,
+                    color: Colors.red,
+                    isUseFontSizePrefs: false,
+                    fontSize: 25.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : ListView.builder(
+                  itemCount: _qariList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return CustomCard(
+                      child: ListTile(
+                        title: Txt(_qariList[index].arabicName ?? ''),
+                      ),
+                    );
+                  },
+                ),
+    );
+  }
+}
+
+class SurahudioPage extends StatefulWidget {
+  const SurahudioPage({Key? key}) : super(key: key);
+
+  @override
+  State<SurahudioPage> createState() => SurahAudioPageState();
+}
+
+class SurahAudioPageState extends State<SurahudioPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
     );
   }
 }

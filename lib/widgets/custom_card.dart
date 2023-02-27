@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:quran/global/depency_injection.dart';
+import 'package:quran/tools/constants.dart';
 
 class CustomCard extends StatelessWidget {
   //
@@ -9,6 +12,7 @@ class CustomCard extends StatelessWidget {
     this.padding,
     this.width,
     this.height,
+    this.onTap,
   }) : super(key: key);
   //
   final Widget child;
@@ -16,28 +20,30 @@ class CustomCard extends StatelessWidget {
   final EdgeInsets? padding;
   final double? width;
   final double? height;
+  final void Function()? onTap;
   //
   @override
   Widget build(BuildContext context) {
-    //
     return Container(
-      margin: margin,
-      padding: padding,
-      width: width,
-      height: height,
+      margin: margin ?? Constants.margin,
+      padding: padding ?? Constants.padding,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6.0),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(.070),
-            blurRadius: 4.0,
-            spreadRadius: 2.9,
-            // offset: const Offset(0.0, 1.4),
-          ),
-        ],
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+        color: DI.themeController(context, isListen: true).isDarkTheme
+            ? HexColor('#444d56')
+            : Colors.white,
       ),
-      child: child,
+      alignment: Alignment.center,
+      child: Material(
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+        // borderRadius: BorderRadius.circular(10.0),
+        color: Colors.transparent,
+        child: InkWell(
+            onTap: onTap,
+            child: child,
+            splashColor: DI.primaryColor(context).withOpacity(.2)),
+      ),
     );
+    //
   }
 }

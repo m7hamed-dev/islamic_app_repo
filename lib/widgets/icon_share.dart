@@ -9,10 +9,10 @@ class IconShare extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => CustomShare.shareTxt(text),
-      child: CircleIcon(
-        icon: Icons.share,
-        colorCircle: Colors.grey.shade200,
-        colorIcon: Colors.green,
+      child: const CircleIcon(
+        icon: Icons.ios_share_outlined,
+        // colorCircle: Theme.of(context).primaryColor.withOpacity(.1),
+        // colorIcon: Theme.of(context).primaryColor,
       ),
     );
   }

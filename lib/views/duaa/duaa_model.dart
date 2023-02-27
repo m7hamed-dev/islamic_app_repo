@@ -4,10 +4,7 @@ List<DuaaModel> duaaModelFromJson(String str) =>
     List<DuaaModel>.from(json.decode(str).map((x) => DuaaModel.fromJson(x)));
 
 class DuaaModel {
-  DuaaModel({
-    required this.type,
-    required this.details,
-  });
+  DuaaModel({required this.type, required this.details});
 
   String type;
   List<Detail> details;
