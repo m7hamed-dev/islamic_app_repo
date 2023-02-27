@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quran/widgets/circular_icon.dart';
 
 late ScrollController scrollController;
 
@@ -59,12 +58,6 @@ class _ScrollTopBottomState extends State<ScrollTopBottom>
       icon: AnimatedIcons.ellipsis_search,
       progress: _animationController,
       size: 50.0,
-    );
-    return InkWell(
-      onTap: _animateToIndex,
-      child: CircleIcon(
-        icon: _iconData,
-      ),
     );
   }
 }

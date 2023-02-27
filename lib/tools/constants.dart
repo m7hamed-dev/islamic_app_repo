@@ -14,8 +14,8 @@ import 'package:quran/views/quran/quran_controller.dart';
 import 'package:quran/views/settings/settings_controller.dart';
 import 'package:quran/views/sibha/sibha_controller.dart';
 import 'package:quran/views/surah/surah_controller.dart';
+import '../global/quran_controller_api.dart';
 import '../global/vibrate_apis.dart';
-import '../views/achievements/achievements_controller.dart';
 import '../views/intro/intro_provider.dart';
 import '../views/prayer/location_serivce.dart';
 import '../views/ramadan/ramadan_controller.dart';
@@ -59,6 +59,9 @@ class Constants {
       create: (_) => RamadanController(),
     ),
     //
+    ChangeNotifierProvider<QuranAPI>(
+      create: (_) => QuranAPI(),
+    ),
     ChangeNotifierProvider<VibrateAPIsProvider>(
       create: (_) => VibrateAPIsProvider(),
     ),
@@ -112,16 +115,6 @@ class Constants {
     ChangeNotifierProvider<IrshadController>(
       create: (_) => IrshadController(),
     ),
-    // ChangeNotifierProvider<PlayMusicProvider>(
-    //   create: (_) => PlayMusicProvider(),
-    // ),
-
-    ChangeNotifierProvider<AchievementsProvider>(
-      create: (_) => AchievementsProvider(),
-    ),
-    // ChangeNotifierProvider<QiblahController>(
-    //   create: (_) => QiblahController(),
-    // ),
     ChangeNotifierProvider<LocationServiceProvider>(
       create: (_) => LocationServiceProvider(),
     ),

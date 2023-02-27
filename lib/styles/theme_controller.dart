@@ -112,7 +112,6 @@ class ThemeController extends ChangeNotifier {
     }
     if (isDarkTheme) {
       return HexColor('#ffffff');
-      return HexColor('#adb6bf');
     }
     return Theme.of(context).primaryColor;
   }

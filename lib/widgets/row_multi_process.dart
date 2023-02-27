@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quran/tools/push.dart';
 import 'package:quran/views/duaa/duaa_model.dart';
 import 'package:quran/widgets/counter_txt.dart';
 import 'package:quran/widgets/icon_copy.dart';
 import 'package:quran/widgets/icon_goto_screenshot.dart';
-import '../views/ramadan/advaice_for_ramadan_view.dart';
 import 'icon_share.dart';
 import 'icon_warning.dart';
 
@@ -81,9 +79,7 @@ class RowMultiProcess extends StatelessWidget {
               isShowAdviceForRamadanIcon == true
                   ? IconButton(
                       padding: EdgeInsets.zero,
-                      onPressed: () {
-                        Push.to(context, const AdvaiceForRamadanView());
-                      },
+                      onPressed: () {},
                       icon: const Icon(Icons.app_registration),
                     )
                   : const SizedBox(

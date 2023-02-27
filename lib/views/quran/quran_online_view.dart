@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/animation/bottom_animation.dart';
 import 'package:quran/global/depency_injection.dart';
+import 'package:quran/global/quran_controller_api.dart';
 import 'package:quran/tools/push.dart';
 import 'package:quran/views/quran/surah_online_view.dart';
 import 'package:quran/widgets/app_bar_title.dart';

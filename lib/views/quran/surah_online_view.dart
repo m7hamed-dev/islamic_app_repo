@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/global/depency_injection.dart';
+import 'package:quran/global/quran_controller_api.dart';
 import 'package:quran/tools/convert_to_arabic_num.dart';
 import 'package:quran/widgets/app_bar_title.dart';
 import 'package:quran/widgets/custom_card.dart';
-import 'package:quran/widgets/row_multi_process.dart';
 import '../../widgets/icon_leading.dart';
 import '../../widgets/txt.dart';
 
@@ -84,8 +84,7 @@ class _SurahOnlineViewState extends State<SurahOnlineView> {
         ],
         leading: const IconLeading(),
       ),
-      // body: Consumer<QuranAPI>(
-      body: Consumer(
+      body: Consumer<QuranAPI>(
         builder: (context, _controller, child) {
           //
           return ListView.builder(
@@ -116,16 +115,16 @@ class _SurahOnlineViewState extends State<SurahOnlineView> {
                       fontSize: 20.0,
                     ),
                   ),
-                  subtitle: _isShowRowMultiProcess
-                      ? RowMultiProcess(
-                          text: _controller.selectedSurah.ayahs[index].text,
-                          title: _controller.selectedSurah.name +
-                              ' الآية ' +
-                              '( ${_controller.selectedSurah.ayahs[index].numberInSurah} )',
-                          hsna: '',
-                          titleFavourit: 'titleFavourit',
-                        )
-                      : const SizedBox(),
+                  // subtitle: _isShowRowMultiProcess
+                  //     ? RowMultiProcess(
+                  //         text: _controller.selectedSurah.ayahs[index].text,
+                  //         title: _controller.selectedSurah.name +
+                  //             ' الآية ' +
+                  //             '( ${_controller.selectedSurah.ayahs[index].numberInSurah} )',
+                  //         hsna: '',
+                  //         titleFavourit: 'titleFavourit',
+                  //       )
+                  //     : const SizedBox(),
                 ),
               );
             },

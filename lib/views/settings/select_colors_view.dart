@@ -22,7 +22,7 @@ class SelectColorsView extends StatelessWidget {
               height: 40.0,
               color: Colors.red,
             ),
-            time: Duration(milliseconds: 900),
+            time: const Duration(milliseconds: 900),
             //+ index * 100
           );
         },

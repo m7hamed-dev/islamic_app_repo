@@ -36,9 +36,10 @@ class Btn extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: elevation ?? 0.0,
-          primary: DI.themeController(context, isListen: true).isDarkTheme
-              ? Colors.teal
-              : DI.primaryColor(context).withOpacity(.8),
+          backgroundColor:
+              DI.themeController(context, isListen: true).isDarkTheme
+                  ? Colors.teal
+                  : DI.primaryColor(context).withOpacity(.8),
           padding: padding,
           shape: shape,
         ),

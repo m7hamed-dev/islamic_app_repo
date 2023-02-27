@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/styles/txt_style.dart';
-import 'package:quran/tools/push.dart';
 import 'card_listview_reciter.dart';
-import 'details_reciter.dart';
 import 'music_quran_controller.dart';
 
 class MusicQuranView extends StatelessWidget {

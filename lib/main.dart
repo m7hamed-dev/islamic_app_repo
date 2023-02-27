@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hijri/hijri_calendar.dart';
@@ -11,6 +12,7 @@ import 'package:quran/views/quran/quran_online_view.dart';
 import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/custom_loading.dart';
 import 'package:quran/widgets/txt.dart';
+
 import 'views/qari/qari_list_model.dart';
 
 // load some resources

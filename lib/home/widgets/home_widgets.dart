@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quran/tools/constants.dart';
-import 'package:quran/views/achievements/achievements_view.dart';
 import 'package:quran/views/duaa/category_duaa_view.dart';
 import 'package:quran/views/irshad/irshad_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
 import 'package:quran/views/quran/quran_online_view.dart';
-import 'package:quran/views/ramadan/ramadan_view.dart';
 import 'package:quran/views/sibha/sibha_view.dart';
 import '../../views/asma_allah/asma_allah_view.dart';
 import '../../views/prayer/prayer_time.dart';
@@ -45,21 +43,21 @@ class HomeWidgets extends StatefulWidget {
       image: 'mosque',
       page: PrayTimes(),
     ),
-    CardHomeItem(
-      title: 'إنجازاتك',
-      image: 'awards',
-      page: AchievementsView(),
-    ),
+    // CardHomeItem(
+    //   title: 'إنجازاتك',
+    //   image: 'awards',
+    //   page: AchievementsView(),
+    // ),
     CardHomeItem(
       title: 'السبحة',
       image: 'beads',
       page: SibhaView(),
     ),
-    CardHomeItem(
-      title: 'رمضانيات ',
-      image: 'no',
-      page: RamadanView(),
-    ),
+    // CardHomeItem(
+    //   title: 'رمضانيات ',
+    //   image: 'no',
+    //   page: RamadanView(),
+    // ),
     CardHomeItem(
       title: 'أسئلة',
       image: 'conversation',
