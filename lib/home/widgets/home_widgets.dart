@@ -6,6 +6,7 @@ import 'package:quran/views/irshad/irshad_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
 import 'package:quran/views/quran/quran_online_view.dart';
 import 'package:quran/widgets/background_image_widget.dart';
+import 'package:quran/widgets/icon_settings.dart';
 import '../../views/prayer/prayer_time.dart';
 import '../../views/surah/all_surah_view.dart';
 import 'card_home_item.dart';
@@ -14,7 +15,9 @@ class HomeWidgets extends StatefulWidget {
   const HomeWidgets({Key? key}) : super(key: key);
   @override
   State<HomeWidgets> createState() => _HomeWidgetsState();
+}
 
+class _HomeWidgetsState extends State<HomeWidgets> {
   static const _items = <CardHomeItem>[
     CardHomeItem(
       title: 'pdf - القرآن',
@@ -48,11 +51,6 @@ class HomeWidgets extends StatefulWidget {
     //   page: AchievementsView(),
     // ),
     // CardHomeItem(
-    //   title: 'السبحة',
-    //   image: 'beads',
-    //   page: SibhaView(),
-    // ),
-    // CardHomeItem(
     //   title: 'رمضانيات ',
     //   image: 'no',
     //   page: RamadanView(),
@@ -69,9 +67,7 @@ class HomeWidgets extends StatefulWidget {
       page: IrshadView(),
     ),
   ];
-}
 
-class _HomeWidgetsState extends State<HomeWidgets> {
   @override
   Widget build(BuildContext context) {
     return BackGroundImageWidget(
@@ -80,6 +76,16 @@ class _HomeWidgetsState extends State<HomeWidgets> {
         physics: Constants.bouncScrollPhysics,
         slivers: [
           //
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(28.0),
+              child: Row(
+                children: const [
+                  IconSettings(),
+                ],
+              ),
+            ),
+          ),
           const SliverToBoxAdapter(child: Header()),
           //
           // const SliverToBoxAdapter(
@@ -96,9 +102,9 @@ class _HomeWidgetsState extends State<HomeWidgets> {
             ),
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return HomeWidgets._items[index];
+                return _items[index];
               },
-              childCount: HomeWidgets._items.length,
+              childCount: _items.length,
             ),
           )
         ],

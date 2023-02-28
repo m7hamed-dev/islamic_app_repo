@@ -24,16 +24,7 @@ class CardHomeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        // isTransitonFromBottomToUp == true
-        //     ? transitionAnimation.fromBottomToTop(
-        //         context: context,
-        //         goToPage: page,
-        //       )
-        //     : Push.to(context, page);
-
-        Push.to(context, page);
-      },
+      onTap: () => Push.to(context, page),
       child: Container(
         margin: const EdgeInsets.symmetric(
           vertical: 5.0,

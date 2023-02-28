@@ -6,14 +6,12 @@ class BackGroundImageWidget extends StatelessWidget {
   final Widget child;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Image.asset('assets/home/bg_tow.png', fit: BoxFit.cover),
-          child,
-        ],
-      ),
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Image.asset('assets/home/bg_one.png', fit: BoxFit.cover),
+        child,
+      ],
     );
   }
 }

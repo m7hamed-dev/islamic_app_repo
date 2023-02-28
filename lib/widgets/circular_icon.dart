@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran/global/depency_injection.dart';
+import 'package:provider/provider.dart';
+import 'package:quran/styles/theme_controller.dart';
 
 class CircleIcon extends StatelessWidget {
   const CircleIcon({
@@ -17,12 +18,25 @@ class CircleIcon extends StatelessWidget {
   //
   @override
   Widget build(BuildContext context) {
-    return Icon(
-      icon,
-      color: DI.themeController(context, isListen: true).isDarkTheme
-          ? Colors.white
-          : Theme.of(context).primaryColor,
-      size: sizeIcon ?? 24.0,
+    return Consumer<ThemeController>(
+      builder: (context, provider, _) {
+        return Container(
+          padding: const EdgeInsets.all(4.0),
+          decoration: BoxDecoration(
+            color: provider.isDarkTheme
+                ? Theme.of(context).primaryColor
+                : Colors.white,
+            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+          ),
+          child: Icon(
+            icon,
+            // color: DI.themeController(context, isListen: true).isDarkTheme
+            // color: Colors.white,
+            // : Theme.of(context).primaryColor,
+            size: sizeIcon ?? 28.0,
+          ),
+        );
+      },
     );
   }
 }
