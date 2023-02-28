@@ -17,34 +17,38 @@ class DuaaCategoriesListView extends StatelessWidget {
     return Consumer<DuaaController>(
       builder: (context, DuaaController value, _) {
         return GridView.builder(
-          padding: const EdgeInsets.all(10.0),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 2 / 1.5,
+            // childAspectRatio: 2 / 1.7,
           ),
           itemCount: value.categories.length,
           physics: Constants.bouncScrollPhysics,
           itemBuilder: (BuildContext context, int index) {
             // return SizedBox();
-            return BottomAnimator(
-              time: Duration(milliseconds: 200 + index * 40),
-              child: InkWell(
-                onTap: () {
-                  // value.selectedSingleCategory(index);
-                  // print(value.category.title);
-                  Push.to(
-                    context,
-                    DuaaView(
-                      type: value.categories[index].type,
-                      details: value.categories[index].details,
+            return Column(
+              children: [
+                // Txt(value.categories[index].type),
+                BottomAnimator(
+                  time: Duration(milliseconds: 200 + index * 40),
+                  child: InkWell(
+                    onTap: () {
+                      // value.selectedSingleCategory(index);
+                      // print(value.category.title);
+                      Push.to(
+                        context,
+                        DuaaView(
+                          type: value.categories[index].type,
+                          details: value.categories[index].details,
+                        ),
+                      );
+                    },
+                    child: CardDuaaCategory(
+                      title: value.categories[index].type,
+                      index: index,
                     ),
-                  );
-                },
-                child: CardDuaaCategory(
-                  title: value.categories[index].type,
-                  index: index,
+                  ),
                 ),
-              ),
+              ],
             );
           },
         );

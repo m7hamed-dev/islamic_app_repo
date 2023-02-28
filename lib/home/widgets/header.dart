@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/tools/hijri_time.dart';
 import 'package:quran/tools/screen_util.dart';
 import '../../views/ramadan/card_remaining_of_ramadan.dart';
-import '../../widgets/fitted_back_img.dart';
 import 'card_advaice_for_ramadan.dart';
 import 'card_hijri_info.dart';
 
@@ -37,15 +36,15 @@ class Header extends StatelessWidget {
       height: ScreenUtil.getHeight(context) * 0.22,
       child: Stack(
         children: const [
-          FittedBackImage(img: 'assets/home/mos.jpg'),
+          // FittedBackImage(img: 'assets/home/mos.jpg'),
           Positioned(
-            top: 4.0,
+            bottom: 0.0,
             left: 5.0,
             child: RemainingRamadanWidget(),
           ),
           Positioned(
             bottom: 2.0,
-            right: 10.0,
+            right: 0.0,
             child: CardHijriCalender(),
           ),
         ],

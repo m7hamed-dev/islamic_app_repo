@@ -40,16 +40,22 @@ class CustomCard extends StatelessWidget {
           )
         ],
       ),
-      alignment: Alignment.center,
-      child: Material(
-        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+      // alignment: Alignment.center,
+      child: MaterialButton(
+        // borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         // borderRadius: BorderRadius.circular(10.0),
         color: Colors.transparent,
-        child: InkWell(
-          onTap: onTap,
-          splashColor: DI.primaryColor(context).withOpacity(.2),
-          child: child,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
+        onPressed: onTap,
+        splashColor: DI.primaryColor(context).withOpacity(.2),
+        child: child,
+        // child: InkWell(
+        //   onTap: onTap,
+        //   splashColor: DI.primaryColor(context).withOpacity(.2),
+        //   child: child,
+        // ),
       ),
     );
     //

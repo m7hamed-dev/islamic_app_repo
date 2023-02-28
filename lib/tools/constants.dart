@@ -30,9 +30,9 @@ class Constants {
   static const processSuccess = 'تمت بنجاح ';
   // static const internetErro = 'internetErro';
   // padding
-  static const EdgeInsets padding = EdgeInsets.all(14.0);
+  static const EdgeInsets padding = EdgeInsets.all(10.0);
   //
-  static const EdgeInsets paddingHomeView = EdgeInsets.all(14.0);
+  static const EdgeInsets paddingHomeView = EdgeInsets.all(10.0);
   //
   static const EdgeInsets marginHomeView =
       EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0);

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:quran/home/widgets/header.dart';
 import 'package:quran/tools/constants.dart';
 import 'package:quran/views/duaa/category_duaa_view.dart';
 import 'package:quran/views/irshad/irshad_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
 import 'package:quran/views/quran/quran_online_view.dart';
-import '../../views/asma_allah/asma_allah_view.dart';
+import 'package:quran/widgets/background_image_widget.dart';
 import '../../views/prayer/prayer_time.dart';
 import '../../views/surah/all_surah_view.dart';
 import 'card_home_item.dart';
-import 'header.dart';
 
 class HomeWidgets extends StatefulWidget {
   const HomeWidgets({Key? key}) : super(key: key);
@@ -74,34 +74,35 @@ class HomeWidgets extends StatefulWidget {
 class _HomeWidgetsState extends State<HomeWidgets> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: CustomScrollView(physics: Constants.bouncScrollPhysics, slivers: [
-        //
-        const SliverToBoxAdapter(
-          child: Header(),
-        ),
-        //
-        const SliverToBoxAdapter(
-          child: AsmaAllahView(),
-        ),
-        //
-        //
-        SliverGrid(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 150.0,
-            mainAxisSpacing: 0.0,
-            crossAxisSpacing: 0.0,
-            childAspectRatio: 1.0,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return HomeWidgets._items[index];
-            },
-            childCount: HomeWidgets._items.length,
-          ),
-        )
-      ]),
+    return BackGroundImageWidget(
+      child: CustomScrollView(
+        // padding: const EdgeInsets.all(8.0),
+        physics: Constants.bouncScrollPhysics,
+        slivers: [
+          //
+          const SliverToBoxAdapter(child: Header()),
+          //
+          // const SliverToBoxAdapter(
+          //   child: AsmaAllahView(),
+          // ),
+          //
+          //
+          SliverGrid(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 150.0,
+              mainAxisSpacing: 0.0,
+              crossAxisSpacing: 0.0,
+              childAspectRatio: 1.0,
+            ),
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return HomeWidgets._items[index];
+              },
+              childCount: HomeWidgets._items.length,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

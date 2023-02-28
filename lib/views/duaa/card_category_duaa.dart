@@ -82,7 +82,7 @@ class CardDuaaCategory extends StatelessWidget {
           Txt(
             title,
             isUseFontSizePrefs: false,
-            textStyle: maraiBlack,
+            textStyle: maraiBlack.copyWith(fontSize: 14.0),
             // fontSize: Constants.txtFontSize,
           ),
           const SizedBox(height: 5.0),

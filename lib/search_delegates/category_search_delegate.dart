@@ -38,6 +38,7 @@ class CategorySearchDelegate extends SearchDelegate<DuaaModel> {
             title: item.title,
             hsna: item.hsna,
             count: item.count,
+            rawie: '',
           ),
         );
       }
@@ -61,6 +62,7 @@ class CategorySearchDelegate extends SearchDelegate<DuaaModel> {
             title: item.title,
             hsna: item.hsna,
             count: item.count,
+            rawie: '',
           ),
         );
       }

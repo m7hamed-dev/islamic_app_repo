@@ -30,14 +30,4 @@ class DuaaController extends ChangeNotifier {
       notifyListeners();
     }
   }
-
-  // late Detail category;
-  // late String categoryName;
-
-  // ///
-  // void selectedSingleCategory(int index) {
-  //   category = _categories[index].details[index];
-  //   categoryName = _categories[index].type;
-  //   notifyListeners();
-  // }
 }
