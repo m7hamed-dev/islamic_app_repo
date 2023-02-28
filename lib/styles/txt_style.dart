@@ -27,21 +27,21 @@ class TxtStyle {
 const maraiRegular = TextStyle(
   fontFamily: 'Almarai',
   fontWeight: FontWeight.w400,
-  fontSize: 12,
+  fontSize: 10,
   // fontSize: Dimensions.fontSizeDefault,
 );
 
 const maraiMedium = TextStyle(
   fontFamily: 'Almarai',
   fontWeight: FontWeight.w500,
-  fontSize: 14,
+  fontSize: 12,
   // fontSize: Dimensions.fontSizeDefault,
 );
 
 const maraiBold = TextStyle(
   fontFamily: 'Almarai',
   fontWeight: FontWeight.w700,
-  fontSize: 16,
+  fontSize: 14,
   // color: Colors.black,
   // fontSize: Dimensions.fontSizeDefault,
 );
@@ -49,7 +49,7 @@ const maraiBold = TextStyle(
 const maraiBlack = TextStyle(
   fontFamily: 'Almarai',
   fontWeight: FontWeight.w900,
-  fontSize: 18,
+  fontSize: 16,
   // color: Colors.black,
   // fontSize: Dimensions.fontSizeDefault,
 );

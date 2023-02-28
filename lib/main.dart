@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:hijri/hijri_calendar.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/home/home_view.dart';
 import 'package:quran/storage/local_storage.dart';
@@ -25,20 +24,24 @@ Future<void> main() async {
 
   /// init local stoage
   await LocalStorage.init();
-  const String locale = 'ar';
+  // const String locale = 'ar';
   //
-  HijriCalendar.setLocal(locale);
+  // HijriCalendar.setLocal(locale);
   runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SAU')],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('ar', 'SAU'),
-      // fallbackLocale: const Locale('en', 'US'),
-      child: MultiProvider(
-        providers: Constants.providers,
-        child: const MyApp(),
-      ),
+    MultiProvider(
+      providers: Constants.providers,
+      child: const MyApp(),
     ),
+    // EasyLocalization(
+    //   supportedLocales: const [Locale('en', 'US'), Locale('ar', 'SAU')],
+    //   path: 'assets/translations',
+    //   fallbackLocale: const Locale('ar', 'SAU'),
+    //   // fallbackLocale: const Locale('en', 'US'),
+    //   child: MultiProvider(
+    //     providers: Constants.providers,
+    //     child: const MyApp(),
+    //   ),
+    // ),
   );
 }
 
@@ -56,9 +59,9 @@ class MyApp extends StatelessWidget {
           title: Constants.appName,
           debugShowCheckedModeBanner: false,
           theme: value.initTheme,
-          localizationsDelegates: context.localizationDelegates,
-          supportedLocales: context.supportedLocales,
-          locale: context.locale,
+          // localizationsDelegates: context.localizationDelegates,
+          // supportedLocales: context.supportedLocales,
+          // locale: context.locale,
           home: const HomeView(),
         );
       },

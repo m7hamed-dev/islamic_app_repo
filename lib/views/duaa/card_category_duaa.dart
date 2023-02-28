@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quran/styles/txt_style.dart';
 import '../../tools/constants.dart';
 import '../../widgets/custom_card.dart';
 import '../../widgets/txt.dart';
-
 
 //
 String _currentImg(int index) {
@@ -69,12 +69,7 @@ class CardDuaaCategory extends StatelessWidget {
   ///
   @override
   Widget build(BuildContext context) {
-    // debugPrint('${images[index]}');
     return CustomCard(
-      margin: const EdgeInsets.symmetric(
-        horizontal: 5.0,
-        vertical: 5.0,
-      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -83,11 +78,19 @@ class CardDuaaCategory extends StatelessWidget {
             width: 50.0,
             height: 50.0,
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 5.0),
           Txt(
             title,
             isUseFontSizePrefs: false,
+            textStyle: maraiBlack,
+            // fontSize: Constants.txtFontSize,
+          ),
+          const SizedBox(height: 5.0),
+          Txt(
+            '25 زكر',
+            isUseFontSizePrefs: false,
             fontSize: Constants.txtFontSize,
+            textStyle: maraiRegular.copyWith(fontSize: 10.0),
           ),
         ],
       ),

@@ -12,7 +12,6 @@ import 'package:quran/views/prayer/prayer_controller.dart';
 import 'package:quran/views/quiez/quiez_controller.dart';
 import 'package:quran/views/quran/quran_controller.dart';
 import 'package:quran/views/settings/settings_controller.dart';
-import 'package:quran/views/sibha/sibha_controller.dart';
 import 'package:quran/views/surah/surah_controller.dart';
 import '../global/quran_controller_api.dart';
 import '../global/vibrate_apis.dart';
@@ -93,9 +92,9 @@ class Constants {
     ChangeNotifierProvider<MusicQuranController>(
       create: (_) => MusicQuranController(),
     ),
-    ChangeNotifierProvider<SibhaController>(
-      create: (_) => SibhaController(),
-    ),
+    // ChangeNotifierProvider<SibhaController>(
+    //   create: (_) => SibhaController(),
+    // ),
     ChangeNotifierProvider<InfoIslamicController>(
       create: (_) => InfoIslamicController(),
     ),

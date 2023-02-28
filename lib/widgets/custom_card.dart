@@ -28,10 +28,17 @@ class CustomCard extends StatelessWidget {
       margin: margin ?? Constants.margin,
       padding: padding ?? Constants.padding,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(18.0)),
         color: DI.themeController(context, isListen: true).isDarkTheme
             ? HexColor('#444d56')
             : Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(.04),
+            spreadRadius: 10.0,
+            blurRadius: 10.0,
+          )
+        ],
       ),
       alignment: Alignment.center,
       child: Material(

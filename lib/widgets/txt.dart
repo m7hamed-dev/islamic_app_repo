@@ -13,6 +13,7 @@ class Txt extends StatelessWidget {
     this.isUseFontSizePrefs = true,
     this.fontSize,
     this.textAlign,
+    this.textStyle,
   }) : super(key: key);
   //
   final String data;
@@ -20,6 +21,7 @@ class Txt extends StatelessWidget {
   final bool? isUseFontSizePrefs;
   final double? fontSize;
   final TextAlign? textAlign;
+  final TextStyle? textStyle;
   //
   @override
   Widget build(BuildContext context) {
@@ -33,11 +35,14 @@ class Txt extends StatelessWidget {
           // maxLines: 10,
           // overflow: TextOverflow.fade,
           textAlign: textAlign,
-          style: maraiBold.copyWith(
-            fontSize:
-                isUseFontSizePrefs == false ? fontSize : controller.fontSize,
-            color: context.watch<ThemeController>().txtColor(context, color),
-          ),
+          style: textStyle ??
+              maraiBold.copyWith(
+                fontSize: isUseFontSizePrefs == false
+                    ? fontSize
+                    : controller.fontSize,
+                color:
+                    context.watch<ThemeController>().txtColor(context, color),
+              ),
           // style: TextStyle(
           //   fontSize:
           //       isUseFontSizePrefs == false ? fontSize : controller.fontSize,

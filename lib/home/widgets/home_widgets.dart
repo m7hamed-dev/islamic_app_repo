@@ -4,7 +4,6 @@ import 'package:quran/views/duaa/category_duaa_view.dart';
 import 'package:quran/views/irshad/irshad_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
 import 'package:quran/views/quran/quran_online_view.dart';
-import 'package:quran/views/sibha/sibha_view.dart';
 import '../../views/asma_allah/asma_allah_view.dart';
 import '../../views/prayer/prayer_time.dart';
 import '../../views/surah/all_surah_view.dart';
@@ -48,11 +47,11 @@ class HomeWidgets extends StatefulWidget {
     //   image: 'awards',
     //   page: AchievementsView(),
     // ),
-    CardHomeItem(
-      title: 'السبحة',
-      image: 'beads',
-      page: SibhaView(),
-    ),
+    // CardHomeItem(
+    //   title: 'السبحة',
+    //   image: 'beads',
+    //   page: SibhaView(),
+    // ),
     // CardHomeItem(
     //   title: 'رمضانيات ',
     //   image: 'no',

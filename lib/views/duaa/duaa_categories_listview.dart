@@ -17,6 +17,7 @@ class DuaaCategoriesListView extends StatelessWidget {
     return Consumer<DuaaController>(
       builder: (context, DuaaController value, _) {
         return GridView.builder(
+          padding: const EdgeInsets.all(10.0),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 2 / 1.5,
@@ -26,7 +27,7 @@ class DuaaCategoriesListView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             // return SizedBox();
             return BottomAnimator(
-              time: Duration(milliseconds: 300 + index * 40),
+              time: Duration(milliseconds: 200 + index * 40),
               child: InkWell(
                 onTap: () {
                   // value.selectedSingleCategory(index);
