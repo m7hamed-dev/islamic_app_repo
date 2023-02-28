@@ -16,14 +16,11 @@ class RowSelectColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('RowSelectColor rebuild ..');
     return Consumer<ThemeController>(
       builder: (context, controller, _) {
         return Container(
           decoration: CustomBoxDecoraton.decoration(context),
-          // height: 120.0,
-          padding: const EdgeInsets.all(10.0),
-          // margin: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -34,6 +31,7 @@ class RowSelectColor extends StatelessWidget {
               ),
               // const Divider(),
               //
+              const SizedBox(height: 10.0),
               SizedBox(
                 height: 50.0,
                 child: Row(
@@ -42,9 +40,7 @@ class RowSelectColor extends StatelessWidget {
                     Expanded(
                       child: InkWell(
                         onTap: () {
-                          controller.changeThemeColor(1
-                              // _controller.selectedIndexOfColor,
-                              );
+                          controller.changeThemeColor(1);
                         },
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 400),
@@ -132,7 +128,6 @@ class RowSelectColor extends StatelessWidget {
               controller.isLightTheme == false
                   ? const SizedBox()
                   : Btn(
-                      height: 40.0,
                       onPressed: () async {
                         await showDialog(
                           context: context,

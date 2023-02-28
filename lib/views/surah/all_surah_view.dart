@@ -22,7 +22,6 @@ class AllSurahView extends StatelessWidget {
         appBar: AppBar(
           title: const AppBarTitle('السور'),
           actions: const [ItemsAppBar()],
-          // shape: CustomAppBarShape(),
           leading: const IconLeading(),
         ),
         body: const ListViewSurah(),

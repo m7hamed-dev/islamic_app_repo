@@ -41,7 +41,10 @@ class Btn extends StatelessWidget {
                   ? Colors.teal
                   : DI.primaryColor(context).withOpacity(.8),
           padding: padding,
-          shape: shape,
+          shape: shape ??
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0),
+              ),
         ),
         onPressed: onPressed,
         child: child,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quran/views/duaa/duaa_categories_listview.dart';
 import 'package:quran/widgets/icon_show_bottomnavigation.dart';
-import 'package:quran/widgets/navigation_bottom_settings.dart';
 import '../../widgets/app_bar_title.dart';
 import '../../widgets/icon_leading.dart';
 
@@ -17,7 +16,6 @@ class CategoryDuaaView extends StatelessWidget {
         actions: const [IconShowBottomNavigation()],
       ),
       body: const DuaaCategoriesListView(),
-      bottomNavigationBar: const NavigationBbottomSettings(),
     );
   }
 }

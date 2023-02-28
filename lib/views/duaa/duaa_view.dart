@@ -3,7 +3,6 @@ import 'package:quran/tools/constants.dart';
 import 'package:quran/widgets/generate_dots_widget.dart';
 import 'package:quran/widgets/icon_leading.dart';
 import 'package:quran/widgets/icon_show_bottomnavigation.dart';
-import 'package:quran/widgets/navigation_bottom_settings.dart';
 import '../../widgets/app_bar_title.dart';
 import 'card_duaa_zkr.dart';
 import 'duaa_model.dart';
@@ -76,7 +75,6 @@ class _DuaaViewState extends State<DuaaView> {
           // NextPreviousArrow(pageController: _pageController),
         ],
       ),
-      bottomNavigationBar: const NavigationBbottomSettings(),
     );
   }
 }

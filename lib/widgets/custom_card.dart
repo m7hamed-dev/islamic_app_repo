@@ -42,14 +42,13 @@ class CustomCard extends StatelessWidget {
       ),
       // alignment: Alignment.center,
       child: MaterialButton(
-        // borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         // borderRadius: BorderRadius.circular(10.0),
-        color: Colors.transparent,
+        // color: Colors.red,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
         ),
         onPressed: onTap,
-        splashColor: DI.primaryColor(context).withOpacity(.2),
+        splashColor: DI.primaryColor(context).withOpacity(.22),
         child: child,
         // child: InkWell(
         //   onTap: onTap,

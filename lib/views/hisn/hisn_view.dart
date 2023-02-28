@@ -47,7 +47,7 @@
 //         actions: const [IconShowBottomNavigation()],
 //       ),
 //       body: ListviewHisn(hisnList: _hisList),
-//       bottomNavigationBar: const NavigationBbottomSettings(),
+//       
 //     );
 //   }
 // }

@@ -91,7 +91,7 @@ class _TakeScreenShotFromWidgetState extends State<TakeScreenShotFromWidget> {
         // shape: CustomAppBarShape(),
       ),
       body: widget.child,
-      // bottomNavigationBar: const NavigationBbottomSettings(),
+      //
     );
   }
 }

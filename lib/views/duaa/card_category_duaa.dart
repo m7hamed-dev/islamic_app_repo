@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/global/depency_injection.dart';
 import 'package:quran/styles/txt_style.dart';
 import '../../tools/constants.dart';
 import '../../widgets/custom_card.dart';
@@ -71,21 +72,22 @@ class CardDuaaCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
             _currentImg(index),
             width: 50.0,
             height: 50.0,
           ),
-          const SizedBox(height: 5.0),
+          const SizedBox(height: 10.0),
           Txt(
             title,
             isUseFontSizePrefs: false,
-            textStyle: maraiBlack.copyWith(fontSize: 14.0),
+            textStyle: maraiBlack,
+            color: DI.primaryColor(context),
             // fontSize: Constants.txtFontSize,
           ),
-          const SizedBox(height: 5.0),
+          const SizedBox(height: 10.0),
           Txt(
             '25 زكر',
             isUseFontSizePrefs: false,

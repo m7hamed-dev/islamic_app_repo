@@ -3,7 +3,6 @@ import 'package:quran/global/depency_injection.dart';
 import 'package:quran/widgets/app_bar_title.dart';
 import 'package:quran/widgets/icon_leading.dart';
 import 'package:quran/widgets/icon_show_bottomnavigation.dart';
-import 'package:quran/widgets/navigation_bottom_settings.dart';
 import 'package:quran/widgets/txt.dart';
 import 'package:share_files_and_screenshot_widgets/share_files_and_screenshot_widgets.dart';
 import '../tools/constants.dart';
@@ -149,7 +148,6 @@ ${Constants.appName} \n
           ),
         ),
       ),
-      bottomNavigationBar: const NavigationBbottomSettings(),
     );
   }
 }

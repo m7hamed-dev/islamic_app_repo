@@ -21,19 +21,19 @@ class CircleIcon extends StatelessWidget {
     return Consumer<ThemeController>(
       builder: (context, provider, _) {
         return Container(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(6.0),
           decoration: BoxDecoration(
-            color: provider.isDarkTheme
-                ? Theme.of(context).primaryColor
+            color: !provider.isDarkTheme
+                ? Theme.of(context).primaryColor.withOpacity(.5)
                 : Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(12.0)),
           ),
           child: Icon(
             icon,
             // color: DI.themeController(context, isListen: true).isDarkTheme
-            // color: Colors.white,
+            color: Colors.white,
             // : Theme.of(context).primaryColor,
-            size: sizeIcon ?? 28.0,
+            size: sizeIcon ?? 22.0,
           ),
         );
       },

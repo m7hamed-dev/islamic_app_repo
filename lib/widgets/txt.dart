@@ -35,14 +35,18 @@ class Txt extends StatelessWidget {
           // maxLines: 10,
           // overflow: TextOverflow.fade,
           textAlign: textAlign,
-          style: textStyle ??
-              maraiBold.copyWith(
-                fontSize: isUseFontSizePrefs == false
-                    ? fontSize
-                    : controller.fontSize,
-                color:
-                    context.watch<ThemeController>().txtColor(context, color),
-              ),
+          style: textStyle != null
+              ? textStyle!.copyWith(
+                  color:
+                      context.watch<ThemeController>().txtColor(context, color),
+                )
+              : maraiBold.copyWith(
+                  fontSize: isUseFontSizePrefs == false
+                      ? fontSize
+                      : controller.fontSize,
+                  color:
+                      context.watch<ThemeController>().txtColor(context, color),
+                ),
           // style: TextStyle(
           //   fontSize:
           //       isUseFontSizePrefs == false ? fontSize : controller.fontSize,
