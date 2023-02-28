@@ -8,24 +8,35 @@ class BlurWidget extends StatelessWidget {
   //
   @override
   Widget build(BuildContext context) {
+    // return Container(
+    //   padding: const EdgeInsets.all(5.0),
+    //   decoration: BoxDecoration(
+    //     color: Colors.grey.withOpacity(.22),
+    //     // color: Theme.of(context).primaryColor,
+    //     borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+    //     boxShadow: const [
+    //       BoxShadow(
+    //         color: Colors.white,
+    //         // blurRadius: 10.0,
+    //         // spreadRadius: 10.0,
+    //       )
+    //     ],
+    //   ),
+    //   child: child,
+    // );
+
     //
     return Container(
-      padding: const EdgeInsets.all(4.0),
-      alignment: Alignment.center,
+      padding: const EdgeInsets.all(8.0),
       decoration: BoxDecoration(
-        // color: Theme.of(context).primaryColor.withOpacity(.11),
-        color: Colors.white.withOpacity(.4),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10.0),
-        ),
+        color: Colors.white,
+        // color: Theme.of(context).primaryColor,
+        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         boxShadow: [
           BoxShadow(
-            // color: Theme.of(context).primaryColor.withOpacity(.1),
-            // color: Colors.white.withOpacity(.4),
-            color: Colors.black.withOpacity(.03),
-            blurRadius: 5.0,
-            spreadRadius: 5.0,
-            offset: const Offset(3.0, 3.0),
+            color: Colors.grey.withOpacity(.05),
+            blurRadius: 10.0,
+            spreadRadius: 10.0,
           )
         ],
       ),

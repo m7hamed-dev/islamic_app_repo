@@ -17,7 +17,7 @@ class CounterTxt extends StatelessWidget {
     }
     return Consumer<DuaaController>(
       builder: (_, count, __) {
-        final String count = ConvertTo.toArabicNumber('${detail!.count}');
+        final count = ConvertTo.toArabicNumber('${detail!.count}');
         //
         return BottomAnimator(
           time: const Duration(milliseconds: 460),

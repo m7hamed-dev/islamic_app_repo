@@ -16,16 +16,13 @@ class AllSurahView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const AppBarTitle('السور'),
-          actions: const [ItemsAppBar()],
-          leading: const IconLeading(),
-        ),
-        body: const ListViewSurah(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const AppBarTitle('السور'),
+        actions: const [ItemsAppBar()],
+        leading: const IconLeading(),
       ),
+      body: const ListViewSurah(),
     );
   }
 }

@@ -21,7 +21,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
   static const _items = <CardHomeItem>[
     CardHomeItem(
       title: 'pdf - القرآن',
-      image: 'quran',
+      image: 'green_quran',
       page: AllSurahView(),
     ),
     CardHomeItem(

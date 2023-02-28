@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/styles/row_select_color.dart';
@@ -17,56 +19,61 @@ class IconShowBottomNavigation extends StatelessWidget {
       onTap: () => showDialog(
         context: context,
         builder: (context) {
-          return Dialog(
-            child: Consumer<SettingsController>(
-              builder: (context, settings, _) {
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 400),
-                  padding: const EdgeInsets.all(10.0),
-                  margin: const EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor.withOpacity(.22),
-                    borderRadius: const BorderRadius.all(
-                      Radius.circular(20.0),
-                    ),
-                  ),
-                  child: ListView(
-                    shrinkWrap: true,
-                    physics: Constants.bouncScrollPhysics,
+          return BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            child: Dialog(
+              insetPadding: const EdgeInsets.all(20.0),
+              child: Consumer<SettingsController>(
+                builder: (context, settings, _) {
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 400),
                     padding: const EdgeInsets.all(10.0),
-                    children: [
-                      InkWell(
-                        child: Container(
-                          height: 12.0,
-                          width: ScreenUtil.getWidth(context) / 3,
-                          alignment: Alignment.center,
-                          margin: const EdgeInsets.symmetric(vertical: 9.0),
-                          decoration: BoxDecoration(
-                            color:
-                                Theme.of(context).primaryColor.withOpacity(.2),
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
+                    margin: const EdgeInsets.all(10.0),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor.withOpacity(.22),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(20.0),
+                      ),
+                    ),
+                    child: ListView(
+                      shrinkWrap: true,
+                      physics: Constants.bouncScrollPhysics,
+                      padding: const EdgeInsets.all(10.0),
+                      children: [
+                        InkWell(
                           child: Container(
-                            height: 4.0,
-                            width: ScreenUtil.getWidth(context) / 4,
-                            // margin: const EdgeInsets.symmetric(vertical: 9.0),
+                            height: 12.0,
+                            width: ScreenUtil.getWidth(context) / 3,
+                            alignment: Alignment.center,
+                            margin: const EdgeInsets.symmetric(vertical: 9.0),
                             decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(20.0),
+                              color: Theme.of(context)
+                                  .primaryColor
+                                  .withOpacity(.2),
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                            child: Container(
+                              height: 4.0,
+                              width: ScreenUtil.getWidth(context) / 4,
+                              // margin: const EdgeInsets.symmetric(vertical: 9.0),
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor,
+                                borderRadius: const BorderRadius.all(
+                                  Radius.circular(20.0),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 10.0),
-                      const SliderChangeSizeFont(),
-                      const SizedBox(height: 10.0),
-                      const RowSelectColor()
-                    ],
-                  ),
-                );
-              },
+                        const SizedBox(height: 10.0),
+                        const SliderChangeSizeFont(),
+                        const SizedBox(height: 10.0),
+                        const RowSelectColor()
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           );
         },

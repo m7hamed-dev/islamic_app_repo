@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/home/widgets/custom_asset_img.dart';
-import 'package:quran/styles/custom_box_decoration.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/tools/push.dart';
+import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/txt.dart';
 
 class CardHomeItem extends StatelessWidget {
@@ -25,12 +25,12 @@ class CardHomeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Push.to(context, page),
-      child: Container(
-        margin: const EdgeInsets.symmetric(
-          vertical: 5.0,
-          horizontal: 5.0,
-        ),
-        decoration: CustomBoxDecoraton.decoration(context),
+      child: CustomCard(
+        // margin: const EdgeInsets.symmetric(
+        //   vertical: 5.0,
+        //   horizontal: 5.0,
+        // ),
+        // decoration: CustomBoxDecoraton.decoration(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

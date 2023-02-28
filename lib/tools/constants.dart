@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
-import 'package:quran/home/home_controller.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/views/calc_zkat/zkat_controller.dart';
 import 'package:quran/views/duaa/duaa_controller.dart';
@@ -68,9 +67,6 @@ class Constants {
       create: (_) => ThemeController(),
     ),
 
-    ChangeNotifierProvider<HomeController>(
-      create: (_) => HomeController(),
-    ),
     ChangeNotifierProvider<SettingsController>(
       create: (_) => SettingsController(),
     ),
