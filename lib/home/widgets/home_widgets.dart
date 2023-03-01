@@ -79,11 +79,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.all(28.0),
-              child: Row(
-                children: const [
-                  IconSettings(),
-                ],
-              ),
+              child: Row(children: const [IconSettings()]),
             ),
           ),
           const SliverToBoxAdapter(child: Header()),
