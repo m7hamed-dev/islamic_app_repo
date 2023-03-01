@@ -26,25 +26,27 @@ class CardHomeItem extends StatelessWidget {
     return InkWell(
       onTap: () => Push.to(context, page),
       child: CustomCard(
-        // margin: const EdgeInsets.symmetric(
-        //   vertical: 5.0,
-        //   horizontal: 5.0,
-        // ),
-        // decoration: CustomBoxDecoraton.decoration(context),
+        margin: const EdgeInsets.symmetric(
+          vertical: 5.0,
+          horizontal: 5.0,
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CustomAssetImg(path: 'assets/home/$image.png'),
+            Expanded(
+              flex: 2,
+              child: CustomAssetImg(path: 'assets/home/$image.png'),
+            ),
+            const SizedBox(height: 10),
             Consumer<ThemeController>(
               builder: (context, value, _) {
-                return Txt(
-                  title,
-                  isUseFontSizePrefs: false,
-                  fontSize: 13.0,
-                  // color: value.isDarkTheme
-                  //     ? HexColor('#ffffff')
-                  //     : Theme.of(context).primaryColor,
+                return Expanded(
+                  child: Txt(
+                    title,
+                    isUseFontSizePrefs: false,
+                    fontSize: 11.0,
+                  ),
                 );
               },
             ),
