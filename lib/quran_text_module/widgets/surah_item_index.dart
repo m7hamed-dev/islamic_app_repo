@@ -12,6 +12,8 @@ class SurahItemIndex extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: 114,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (BuildContext context, int index) {
         return Container(
           color: index.isEven

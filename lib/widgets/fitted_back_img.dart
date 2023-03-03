@@ -11,15 +11,10 @@ class FittedBackImage extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-            // 'assets/home/mos.jpg',
-            img,
-          ),
+          image: AssetImage(img),
           fit: BoxFit.cover,
         ),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(20.0),
-        ),
+        // borderRadius: const BorderRadius.all(Radius.circular(20.0)),
       ),
     );
   }

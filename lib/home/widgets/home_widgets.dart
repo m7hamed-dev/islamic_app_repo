@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quran/home/widgets/header.dart';
+import 'package:quran/quran_text_module/view/constant.dart';
+import 'package:quran/quran_text_module/view/index.dart';
 import 'package:quran/tools/constants.dart';
 import 'package:quran/views/duaa/category_duaa_view.dart';
 import 'package:quran/views/irshad/irshad_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
-import 'package:quran/views/quran/quran_online_view.dart';
-import 'package:quran/widgets/background_image_widget.dart';
-import 'package:quran/widgets/icon_settings.dart';
 import '../../views/prayer/prayer_time.dart';
 import '../../views/surah/all_surah_view.dart';
 import 'card_home_item.dart';
@@ -18,32 +17,31 @@ class HomeWidgets extends StatefulWidget {
 }
 
 class _HomeWidgetsState extends State<HomeWidgets> {
-  static const _items = <CardHomeItem>[
+  static final _items = <CardHomeItem>[
     CardHomeItem(
       title: 'pdf - القرآن',
       image: 'green_quran',
-      page: AllSurahView(),
+      page: const AllSurahView(),
+      color: blueColor,
     ),
     CardHomeItem(
       title: 'القرآن أون لاين',
       image: 'quran_ar',
-      page: QuranOnlineView(),
+      page: const IndexPage(),
+      color: redColor,
     ),
-    // CardReadQuranOnlinePdf(),
-    // CardHomeItem(
-    //   title: 'حصن المسلم',
-    //   image: 'quran',
-    //   page: HisnView(),
-    // ),
+
     CardHomeItem(
       title: 'آزكار',
       image: 'praying',
-      page: CategoryDuaaView(),
+      page: const CategoryDuaaView(),
+      color: greenColor,
     ),
     CardHomeItem(
       title: 'مواقيت الصلاة',
       image: 'mosque',
-      page: PrayTimes(),
+      page: const PrayTimes(),
+      color: blueColor,
     ),
     // CardHomeItem(
     //   title: 'إنجازاتك',
@@ -59,49 +57,48 @@ class _HomeWidgetsState extends State<HomeWidgets> {
       title: 'أسئلة',
       image: 'conversation',
       isTransitonFromBottomToUp: true,
-      page: QuiezView(),
+      page: const QuiezView(),
+      color: blueColor,
     ),
     CardHomeItem(
       title: 'نصائح - إرشادات',
       image: 'chat',
-      page: IrshadView(),
+      page: const IrshadView(),
+      color: blueColor,
     ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return BackGroundImageWidget(
-      child: CustomScrollView(
-        // padding: const EdgeInsets.all(8.0),
-        physics: Constants.bouncScrollPhysics,
-        slivers: [
-          //
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.all(28.0),
-              child: Row(children: const [IconSettings()]),
-            ),
+    return CustomScrollView(
+      // padding: const EdgeInsets.all(8.0),
+      physics: Constants.bouncScrollPhysics,
+      slivers: [
+        const SliverAppBar(
+          expandedHeight: 220.0,
+          collapsedHeight: 60.0,
+          flexibleSpace: FlexibleSpaceBar(
+            background: Header(),
+            // title: Txt('خطي إسلامية'),
           ),
-          const SliverToBoxAdapter(child: Header()),
-          //
-          // const SliverToBoxAdapter(
-          //   child: AsmaAllahView(),
-          // ),
-          //
-          //
-          SliverGrid(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return _items[index];
-              },
-              childCount: _items.length,
-            ),
-          )
-        ],
-      ),
+          pinned: true,
+          floating: true,
+        ),
+        //
+        //   child: AsmaAllahView()
+        SliverGrid(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 2.0 / 2.4,
+          ),
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return _items[index];
+            },
+            childCount: _items.length,
+          ),
+        )
+      ],
     );
   }
 }

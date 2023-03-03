@@ -1,6 +1,21 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:quran/global/depency_injection.dart';
 import 'package:quran/tools/constants.dart';
+
+class RandomColor {
+  // This holds the items of the ListView
+  // static final _listItems = List.generate(200, (i) => "Item $i");
+
+  static final _random = Random();
+
+  static Color get getRandColor {
+    return Colors.primaries[_random.nextInt(Colors.primaries.length)]
+            [_random.nextInt(9) * 100] ??
+        Colors.pink.withOpacity(.5);
+  }
+}
 
 class CustomCard extends StatelessWidget {
   //
@@ -29,12 +44,13 @@ class CustomCard extends StatelessWidget {
       margin: margin ?? Constants.margin,
       padding: padding ?? Constants.padding,
       decoration: BoxDecoration(
-        color: color ?? Colors.pink.withOpacity(.05),
+        color: RandomColor.getRandColor.withOpacity(.11),
+        // color: color ?? Colors.pink.withOpacity(.05),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(.05),
-            spreadRadius: 10,
-            blurRadius: 10,
+            color: Colors.grey.withOpacity(0.5),
+            spreadRadius: 5,
+            blurRadius: 7,
             offset: const Offset(1.5, 3),
           ),
         ],

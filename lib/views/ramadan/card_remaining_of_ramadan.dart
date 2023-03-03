@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/styles/txt_style.dart';
 
 import '../../tools/hijri_time.dart';
 import '../../widgets/blur_widget.dart';
@@ -14,39 +15,16 @@ class RemainingRamadanWidget extends StatelessWidget {
       child: RichText(
         text: TextSpan(
           text: ' المتبقي',
-          style: const TextStyle(
-            // fontWeight: FontWeight.bold,
-            fontFamily: 'pfd',
-            fontSize: 14.0, color: Colors.teal,
-            // color: Colors.grey,
-          ),
           children: <TextSpan>[
             const TextSpan(
               text: ' لرمضان ',
-              style: TextStyle(
-                // fontWeight: FontWeight.bold,
-                fontFamily: 'pfd', color: Colors.teal,
-                // fontSize: 14.0, color: Colors.grey,
-              ),
+              style: maraiBlack,
             ),
             TextSpan(
               text: MyHijriCalendar().getRemaingOfRamadn,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: 'pfd',
-                fontSize: 22.0,
-                color: Colors.teal,
-                // color: Theme.of(context).primaryColor,
-              ),
+              style: maraiBlack,
             ),
-            const TextSpan(
-              text: ' يوم',
-              style: TextStyle(
-                // fontWeight: FontWeight.bold,
-                fontFamily: 'pfd',
-                // fontSize: 14.0, color: Colors.grey,
-              ),
-            ),
+            const TextSpan(text: ' يوم'),
           ],
         ),
       ),

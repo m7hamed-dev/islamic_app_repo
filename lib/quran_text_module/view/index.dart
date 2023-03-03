@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/tools/constants.dart';
 import '../../tools/push.dart';
 import '../constant/surah_builder.dart';
 import '../widgets/surah_item_index.dart';
@@ -40,7 +41,6 @@ class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
       floatingActionButton: FloatingActionButton(
         tooltip: 'Go to bookmark',
         backgroundColor: primaryColor,
@@ -58,11 +58,38 @@ class _IndexPageState extends State<IndexPage> {
         },
         child: const Icon(Icons.bookmark),
       ),
-      body: currentState == States.loading
-          ? const CircularProgressIndicator()
-          : currentState == States.error
-              ? const Text('Error')
-              : SurahItemIndex(quran: quran),
+
+      body: const Body(),
+      // body: currentState == States.loading
+      //     ? const CircularProgressIndicator()
+      //     : currentState == States.error
+      //         ? const Text('Error')
+      //         : SurahItemIndex(quran: quran),
+    );
+  }
+}
+
+class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      // padding: const EdgeInsets.all(8.0),
+      physics: Constants.bouncScrollPhysics,
+      slivers: [
+        const SliverAppBar(
+          expandedHeight: 220.0,
+          collapsedHeight: 60.0,
+          flexibleSpace: FlexibleSpaceBar(
+            background: Icon(Icons.holiday_village),
+            // title: Txt('خطي إسلامية'),
+          ),
+          pinned: true,
+          floating: true,
+        ),
+        SliverToBoxAdapter(child: SurahItemIndex(quran: quran)),
+      ],
     );
   }
 }

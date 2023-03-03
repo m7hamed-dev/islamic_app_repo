@@ -110,6 +110,12 @@ class ThemeController extends ChangeNotifier {
   }
 
   bool get isDarkTheme => selectedIndexOfColor == 100 ? true : false;
+
+  void onChange(bool value) {
+    value = !value;
+    notifyListeners();
+  }
+
   //
   Color txtColor(BuildContext context, Color? color) {
     if (color != null) {
