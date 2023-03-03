@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../view/constant.dart';
@@ -7,11 +6,11 @@ import '../view/home.dart';
 class CustomTwoContainer extends StatelessWidget {
   const CustomTwoContainer(
       {Key? key,
-        required this.height1,
-        required this.image,
-        required this.title,
-        required this.color,
-        this.onpressed})
+      required this.height1,
+      required this.image,
+      required this.title,
+      required this.color,
+      this.onpressed})
       : super(key: key);
 
   final double height1;
@@ -27,9 +26,7 @@ class CustomTwoContainer extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: width * .06),
       child: GestureDetector(
-        onTap: (){
-
-        },
+        onTap: () {},
         child: Container(
           height: height1,
           width: width * .4,
@@ -39,7 +36,7 @@ class CustomTwoContainer extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(1.5, 3), // changes position of shadow
+                  offset: const Offset(1.5, 3), // changes position of shadow
                 ),
               ],
               image: const DecorationImage(
@@ -63,14 +60,14 @@ class CustomTwoContainer extends StatelessWidget {
                     width: width * .15,
                     height: height * .07,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Padding(
                     padding: EdgeInsets.only(left: width * .02),
                     child: Text(title, style: titleStyle()),
                   ),
                   Padding(
                     padding: EdgeInsets.only(left: width * .02),
-                    child: GotoTwoWidget(),
+                    child: const GotoTwoWidget(),
                   )
                 ],
               ),
