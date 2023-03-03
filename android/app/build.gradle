@@ -32,10 +32,6 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
-  
-  
-
-
 android {
     compileSdkVersion flutter.compileSdkVersion
 
@@ -55,7 +51,7 @@ android {
     defaultConfig {
         applicationId "com.awseforapps.khota.islamia"
         // applicationId "com.example.quran"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode 6
         versionName "1.1.3"
