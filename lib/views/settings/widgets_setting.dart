@@ -4,12 +4,11 @@ import 'package:quran/views/about_devloper/about_devloper_view.dart';
 // import 'package:quran/widgets/switch_read_quran_online_pdf.dart';
 import '../../styles/row_select_color.dart';
 import '../../widgets/btn.dart';
-import '../../widgets/icon_switch_vibrate.dart';
 import '../../widgets/slider_change_size_font.dart';
 import '../../widgets/txt.dart';
 
 const widgetsSetting = <Widget>[
-  IconSwitchVibrate(),
+  // IconSwitchVibrate(),
   RowSelectColor(),
   SliderChangeSizeFont(),
   BtnGoToAboutDeveloper(),

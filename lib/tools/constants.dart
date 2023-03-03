@@ -13,7 +13,6 @@ import 'package:quran/views/quran/quran_controller.dart';
 import 'package:quran/views/settings/settings_controller.dart';
 import 'package:quran/views/surah/surah_controller.dart';
 import '../global/quran_controller_api.dart';
-import '../global/vibrate_apis.dart';
 import '../views/intro/intro_provider.dart';
 import '../views/prayer/location_serivce.dart';
 import '../views/ramadan/ramadan_controller.dart';
@@ -60,9 +59,9 @@ class Constants {
     ChangeNotifierProvider<QuranAPI>(
       create: (_) => QuranAPI(),
     ),
-    ChangeNotifierProvider<VibrateAPIsProvider>(
-      create: (_) => VibrateAPIsProvider(),
-    ),
+    // ChangeNotifierProvider<VibrateAPIsProvider>(
+    //   create: (_) => VibrateAPIsProvider(),
+    // ),
     ChangeNotifierProvider<ThemeController>(
       create: (_) => ThemeController(),
     ),
