@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:quran/quran_text_module/view/constant.dart';
 import 'package:quran/storage/local_storage.dart';
 
 class ThemeController extends ChangeNotifier {
@@ -78,6 +79,7 @@ class ThemeController extends ChangeNotifier {
     return ThemeData(
       fontFamily: 'Almarai',
       primaryColor: primaryColor,
+      scaffoldBackgroundColor: backgroundColor,
       useMaterial3: true,
       appBarTheme: AppBarTheme(
         // color: Colors.white,

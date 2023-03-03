@@ -89,6 +89,7 @@ flutter:
     - assets/
     - assets/arabic_quran/
     - assets/json/
+    - assets/icons/
     - assets/pdf/
     - assets/praying_time/
     - assets/home/

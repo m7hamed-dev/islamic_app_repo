@@ -16,7 +16,6 @@ import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/custom_loading.dart';
 import 'package:quran/widgets/txt.dart';
 
-import 'quran_text_module/view/home.dart';
 import 'views/qari/qari_list_model.dart';
 
 // load some resources
@@ -68,8 +67,8 @@ class MyApp extends StatelessWidget {
           // supportedLocales: context.supportedLocales,
           // locale: context.locale,
           // home: const OnBoardingPage(),
-          home: const HomePage(),
-          // home: const HomeView(),
+          // home: const HomePage(),
+          home: const HomeView(),
         );
       },
     );

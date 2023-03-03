@@ -14,25 +14,22 @@ class CardHomeItem extends StatelessWidget {
     required this.image,
     required this.page,
     this.isTransitonFromBottomToUp,
+    this.color,
   }) : super(key: key);
   //
   final String title;
   final String image;
   final Widget page;
   final bool? isTransitonFromBottomToUp;
+  final Color? color;
   //
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => Push.to(context, page),
       child: CustomCard(
-        margin: const EdgeInsets.symmetric(
-          vertical: 5.0,
-          horizontal: 5.0,
-        ),
+        color: color,
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               flex: 2,
