@@ -43,8 +43,6 @@ class Constants {
   // all paths
   static const quranPath = 'assets/pdf/quran.pdf';
   static const surhaNamePath = 'assets/json/surah_name_json.json';
-  static const dataBaseName = "favorit_db.db";
-  // 'https://api.pray.zone/v2/times/today.json?city=khartoum';
   static const int lengthZkr = 4;
   static const int totalSurah = 114;
 
