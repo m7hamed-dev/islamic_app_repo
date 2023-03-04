@@ -22,8 +22,7 @@ class CircleIcon extends StatelessWidget {
       child: Icon(
         icon,
         color: DI.primaryColor(context),
-        // color: Colors.white,
-        size: sizeIcon ?? 22.0,
+        size: sizeIcon ?? 18.0,
       ),
     );
   }

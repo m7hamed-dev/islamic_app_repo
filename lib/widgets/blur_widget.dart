@@ -34,7 +34,7 @@ class BlurWidget extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(.05),
+            color: Colors.grey.withOpacity(.10),
             blurRadius: 10.0,
             spreadRadius: 10.0,
           )
