@@ -20,10 +20,10 @@ class SurahBuilder extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SurahBuilderState createState() => _SurahBuilderState();
+  SurahBuilderState createState() => SurahBuilderState();
 }
 
-class _SurahBuilderState extends State<SurahBuilder> {
+class SurahBuilderState extends State<SurahBuilder> {
   bool view = true;
   final itemScrollController = ItemScrollController();
   late ItemPositionsListener itemPositionsListener;
@@ -43,7 +43,6 @@ class _SurahBuilderState extends State<SurahBuilder> {
         curve: Curves.easeInOutCubic,
       );
     }
-    // widget.fabIsClicked = false;
   }
 
   Row verseBuilder(int index, int previousVerses) {
@@ -64,7 +63,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
     );
   }
 
-  SafeArea SingleSuraBuilder(LenghtOfSura) {
+  SafeArea SingleSuraBuilder(int lengthOfSura) {
     String fullSura = '';
     int previousVerses = 0;
     if (widget.sura + 1 != 1) {
@@ -73,10 +72,11 @@ class _SurahBuilderState extends State<SurahBuilder> {
       }
     }
 
-    if (!view)
-      for (int i = 0; i < LenghtOfSura; i++) {
+    if (!view) {
+      for (int i = 0; i < lengthOfSura; i++) {
         fullSura += (widget.arabic[i + previousVerses]['aya_text']);
       }
+    }
 
     return SafeArea(
       child: Container(
@@ -140,7 +140,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                 },
                 itemScrollController: itemScrollController,
                 itemPositionsListener: itemPositionsListener,
-                itemCount: LenghtOfSura,
+                itemCount: lengthOfSura,
               )
             : ListView(
                 children: [
@@ -179,7 +179,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    int LengthOfSura = noOfVerses[widget.sura];
+    int lengthOfSura = noOfVerses[widget.sura];
 
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.yellow),
@@ -219,7 +219,7 @@ class _SurahBuilderState extends State<SurahBuilder> {
                   ]),
             ),
             backgroundColor: primaryColor),
-        body: SingleSuraBuilder(LengthOfSura),
+        body: SingleSuraBuilder(lengthOfSura),
       ),
     );
   }
@@ -236,8 +236,8 @@ class RetunBasmala extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: [
-        const Center(
+      children: const [
+        Center(
           child: Text(
             'بسم الله الرحمن الرحيم',
             style: TextStyle(fontFamily: 'me_quran', fontSize: 30),

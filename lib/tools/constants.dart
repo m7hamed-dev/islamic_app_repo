@@ -7,6 +7,7 @@ import 'package:quran/views/duaa/duaa_controller.dart';
 import 'package:quran/views/inof_islamic/info_islamic_controller.dart';
 import 'package:quran/views/irshad/irshad_controller.dart';
 import 'package:quran/views/music_quran/music_quran_controller.dart';
+import 'package:quran/views/nawawi/nawawi_provider.dart';
 import 'package:quran/views/prayer/prayer_controller.dart';
 import 'package:quran/views/quiez/quiez_controller.dart';
 import 'package:quran/views/quran/quran_controller.dart';
@@ -51,6 +52,10 @@ class Constants {
     //
     ChangeNotifierProvider<RamadanController>(
       create: (_) => RamadanController(),
+    ),
+    //
+    ChangeNotifierProvider<NawawiProvider>(
+      create: (_) => NawawiProvider(),
     ),
     // ),
     ChangeNotifierProvider<ThemeController>(

@@ -25,12 +25,10 @@ class CardHisn extends StatelessWidget {
             listMTxt: mText,
           )),
       child: CustomCard(
-        child: Txt(title,
-
-
-
-            isUseFontSizePrefs: false,
-            ),
+        child: Txt(
+          title,
+          isUseFontSizePrefs: false,
+        ),
       ),
     );
   }

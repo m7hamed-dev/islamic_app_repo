@@ -41,7 +41,7 @@ class SurahItemIndex extends StatelessWidget {
             onPressed: () {
               final page = SurahBuilder(
                 fabIsClicked: false,
-                arabic: quran[0],
+                arabic: quran[0] ?? [],
                 sura: index,
                 suraName: arabicName[index]['name'] ?? '',
                 ayah: 0,
