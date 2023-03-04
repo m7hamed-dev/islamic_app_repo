@@ -35,8 +35,10 @@ class Constants {
   static const EdgeInsets marginHomeView =
       EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0);
   // margin
-  static const EdgeInsets margin =
-      EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0);
+  static const EdgeInsets margin = EdgeInsets.symmetric(
+    horizontal: 16.0,
+    vertical: 8.0,
+  );
   //
   static const double cornerRadius = 10.0;
   static const double txtFontSize = 14.0;

@@ -44,10 +44,11 @@ class CustomCard extends StatelessWidget {
       margin: margin ?? Constants.margin,
       padding: padding ?? Constants.padding,
       decoration: BoxDecoration(
-        color: RandomColor.getRandColor.withOpacity(.11),
+        color: RandomColor.getRandColor.withOpacity(.22),
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(.33),
+            // color: Colors.grey.withOpacity(.33),
             spreadRadius: 10,
             blurRadius: 10,
             offset: const Offset(1.5, 3),

@@ -16,7 +16,6 @@ import 'package:quran/widgets/btn.dart';
 import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/custom_loading.dart';
 import 'package:quran/widgets/txt.dart';
-
 import 'views/qari/qari_list_model.dart';
 
 // load some resources
