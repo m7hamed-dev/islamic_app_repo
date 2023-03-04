@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quran/styles/txt_style.dart';
+import 'package:quran/widgets/custom_card.dart';
 
 import '../../tools/push.dart';
 import '../constant/arabic_sura_number.dart';
@@ -10,47 +12,40 @@ class SurahItemIndex extends StatelessWidget {
   final List quran;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 114,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (BuildContext context, int index) {
-        return Container(
-          color: index.isEven
-              ? const Color.fromARGB(255, 253, 247, 230)
-              : const Color.fromARGB(255, 253, 251, 240),
-          child: TextButton(
-            child: Row(
-              children: [
-                ArabicSuraNumber(i: index),
-                const SizedBox(width: 5.0),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [],
-                  ),
-                ),
-                const Expanded(child: SizedBox()),
-                Text(
-                  arabicName[index]['name'] ?? '',
-                  textDirection: TextDirection.rtl,
-                ),
-              ],
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return CustomCard(
+            color: index.isEven
+                ? const Color.fromARGB(255, 253, 247, 230)
+                : const Color.fromARGB(255, 216, 215, 210),
+            child: ListTile(
+              onTap: () {
+                final page = SurahBuilder(
+                  fabIsClicked: false,
+                  arabic: quran[0] ?? [0],
+                  sura: index,
+                  suraName: arabicName[index]['name'] ?? '',
+                  ayah: 0,
+                );
+                Push.to(context, page);
+              },
+              contentPadding: EdgeInsets.zero,
+              leading: ArabicSuraNumber(i: index),
+              title: Text(
+                arabicName[index]['name'] ?? '',
+                textDirection: TextDirection.rtl,
+                style: maraiBlack,
+              ),
+              subtitle: Text(
+                arabicName[index]['name'] ?? '',
+                textDirection: TextDirection.rtl,
+              ),
             ),
-            onPressed: () {
-              final page = SurahBuilder(
-                fabIsClicked: false,
-                arabic: quran[0] ?? [],
-                sura: index,
-                suraName: arabicName[index]['name'] ?? '',
-                ayah: 0,
-              );
-              Push.to(context, page);
-            },
-          ),
-        );
-      },
+          );
+        },
+        childCount: 114,
+      ),
     );
   }
 }

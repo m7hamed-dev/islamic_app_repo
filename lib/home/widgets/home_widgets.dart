@@ -5,6 +5,7 @@ import 'package:quran/quran_text_module/view/index.dart';
 import 'package:quran/tools/constants.dart';
 import 'package:quran/views/duaa/category_duaa_view.dart';
 import 'package:quran/views/irshad/irshad_view.dart';
+import 'package:quran/views/nawawi/nawawi_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
 import '../../views/prayer/prayer_time.dart';
 import '../../views/surah/all_surah_view.dart';
@@ -41,6 +42,12 @@ class _HomeWidgetsState extends State<HomeWidgets> {
       title: 'مواقيت الصلاة',
       image: 'mosque',
       page: const PrayTimes(),
+      color: blueColor,
+    ),
+    CardHomeItem(
+      title: 'الآربعون نووية',
+      image: 'mosque',
+      page: const NawawisView(),
       color: blueColor,
     ),
     // CardHomeItem(

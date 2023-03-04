@@ -63,9 +63,10 @@ class CustomCard extends StatelessWidget {
       // ),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(18.0)),
-        color: DI.themeController(context, isListen: true).isDarkTheme
-            ? HexColor('#444d56')
-            : Colors.white,
+        color: color ??
+            (DI.themeController(context, isListen: true).isDarkTheme
+                ? HexColor('#444d56')
+                : Colors.white),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(.04),

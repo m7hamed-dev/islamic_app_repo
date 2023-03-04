@@ -68,7 +68,7 @@ Future<void> saveBookMark(int surah, int ayah) async {
   await prefs.setInt("ayah", ayah);
 }
 
-Future<bool> readBookmark() async {
+Future<bool> get readBookmark async {
   final prefs = await SharedPreferences.getInstance();
   try {
     bookmarkedAyah = prefs.getInt('ayah') ?? 1;

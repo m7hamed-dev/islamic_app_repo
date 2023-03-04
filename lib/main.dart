@@ -11,7 +11,6 @@ import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/tools/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:quran/tools/push.dart';
-import 'package:quran/views/nawawi/nawawi_view.dart';
 import 'package:quran/widgets/btn.dart';
 import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/custom_loading.dart';
@@ -67,9 +66,8 @@ class MyApp extends StatelessWidget {
           // supportedLocales: context.supportedLocales,
           // locale: context.locale,
           // home: const OnBoardingPage(),
-          // home: const HomePage(),
-          home: const NawawisView(),
-          // home: const HomeView(),
+          // home: const NawawisView(),
+          home: const HomeView(),
         );
       },
     );

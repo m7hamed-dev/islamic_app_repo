@@ -5,5 +5,4 @@ class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) => const Scaffold(body: HomeWidgets());
-  //   actions: const [IconIslamicInfo(), Spacer(), IconSettings()],
 }

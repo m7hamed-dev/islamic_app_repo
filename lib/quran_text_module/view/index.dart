@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran/tools/constants.dart';
+import 'package:quran/widgets/custom_loading.dart';
+import 'package:quran/widgets/txt.dart';
 import '../../tools/push.dart';
 import '../constant/surah_builder.dart';
 import '../widgets/surah_item_index.dart';
@@ -15,7 +17,7 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
-  var quran;
+  late List quran;
   States currentState = States.loading;
   void _state(States state) {
     currentState = state;
@@ -43,9 +45,8 @@ class _IndexPageState extends State<IndexPage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         tooltip: 'Go to bookmark',
-        backgroundColor: primaryColor,
         onPressed: () async {
-          if (await readBookmark() == true) {
+          if (await readBookmark) {
             final surahBuilder = SurahBuilder(
               fabIsClicked: true,
               arabic: quran[0],
@@ -53,42 +54,47 @@ class _IndexPageState extends State<IndexPage> {
               suraName: arabicName[bookmarkedSura - 1]['name'] ?? '',
               ayah: bookmarkedAyah,
             );
+            if (!mounted) return;
             Push.to(context, surahBuilder);
           }
         },
         child: const Icon(Icons.bookmark),
       ),
-
-      body: const Body(),
-      // body: currentState == States.loading
-      //     ? const CircularProgressIndicator()
-      //     : currentState == States.error
-      //         ? const Text('Error')
-      //         : SurahItemIndex(quran: quran),
+      body: Body(
+        isLoading: currentState,
+      ),
     );
   }
 }
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
-
+  const Body({Key? key, required this.isLoading}) : super(key: key);
+  final States isLoading;
   @override
   Widget build(BuildContext context) {
+    if (isLoading == States.loading) {
+      return const CustomLoading();
+    }
     return CustomScrollView(
-      // padding: const EdgeInsets.all(8.0),
       physics: Constants.bouncScrollPhysics,
       slivers: [
-        const SliverAppBar(
+        SliverAppBar(
           expandedHeight: 220.0,
           collapsedHeight: 60.0,
           flexibleSpace: FlexibleSpaceBar(
-            background: Icon(Icons.holiday_village),
+            background: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/home/green_quran.png'),
+                const Txt('خطي إسلامية', color: Colors.white),
+              ],
+            ),
             // title: Txt('خطي إسلامية'),
           ),
           pinned: true,
           floating: true,
         ),
-        SliverToBoxAdapter(child: SurahItemIndex(quran: quran)),
+        SurahItemIndex(quran: quran),
       ],
     );
   }

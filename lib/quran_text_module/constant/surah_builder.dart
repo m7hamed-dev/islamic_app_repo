@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quran/tools/custom_message.dart';
+import 'package:quran/widgets/circular_icon.dart';
+import 'package:quran/widgets/icon_leading.dart';
+import 'package:quran/widgets/txt.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../view/constant.dart';
@@ -63,7 +67,7 @@ class SurahBuilderState extends State<SurahBuilder> {
     );
   }
 
-  SafeArea SingleSuraBuilder(int lengthOfSura) {
+  SafeArea singleSuraBuilder(int lengthOfSura) {
     String fullSura = '';
     int previousVerses = 0;
     if (widget.sura + 1 != 1) {
@@ -94,46 +98,54 @@ class SurahBuilderState extends State<SurahBuilder> {
                             ? const Color.fromARGB(255, 253, 251, 240)
                             : const Color.fromARGB(255, 253, 247, 230),
                         child: PopupMenuButton(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: verseBuilder(index, previousVerses),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: verseBuilder(index, previousVerses),
+                          ),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              onTap: () async {
+                                String msg = ' تم حفظ ';
+                                // ' تم حفظ ${widget.arabic[widget.ayah + 1]} , ${widget.ayah} ';
+                                await saveBookMark(
+                                  widget.sura + 1,
+                                  index,
+                                );
+                                if (!mounted) return;
+                                CustomMessage.showCustomSnackBar(
+                                  context,
+                                  content: Txt(
+                                    msg,
+                                    color: Colors.white,
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                children: const [
+                                  Icon(Icons.bookmark_add),
+                                  SizedBox(width: 10),
+                                  Txt('حفظ كعلامة'),
+                                ],
+                              ),
                             ),
-                            itemBuilder: (context) => [
-                                  PopupMenuItem(
-                                    onTap: () {
-                                      saveBookMark(widget.sura + 1, index);
-                                    },
-                                    child: Row(
-                                      children: const [
-                                        Icon(
-                                          Icons.bookmark_add,
-                                          color: Color(0xff85a4e7),
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text('Bookmark'),
-                                      ],
-                                    ),
+                            PopupMenuItem(
+                              onTap: () {},
+                              child: Row(
+                                //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: const [
+                                  Icon(
+                                    Icons.share,
+                                    color: Color.fromARGB(255, 56, 115, 59),
                                   ),
-                                  PopupMenuItem(
-                                    onTap: () {},
-                                    child: Row(
-                                      //mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: const [
-                                        Icon(
-                                          Icons.share,
-                                          color:
-                                              Color.fromARGB(255, 56, 115, 59),
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text('Share'),
-                                      ],
-                                    ),
+                                  SizedBox(
+                                    width: 10,
                                   ),
-                                ]),
+                                  Text('Share'),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   );
@@ -181,46 +193,26 @@ class SurahBuilderState extends State<SurahBuilder> {
   Widget build(BuildContext context) {
     int lengthOfSura = noOfVerses[widget.sura];
 
-    return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.yellow),
-      home: Scaffold(
-        backgroundColor: backgroundColor,
-        appBar: AppBar(
-            leading: Tooltip(
-              message: 'Mushaf Mode',
-              child: TextButton(
-                child: const Icon(
-                  Icons.chrome_reader_mode,
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  setState(() {
-                    view = !view;
-                  });
-                },
+    return Scaffold(
+      appBar: AppBar(
+        title: Txt(widget.suraName, color: Colors.white),
+        leading: const IconLeading(),
+        actions: [
+          Tooltip(
+            message: 'Mushaf Mode',
+            child: TextButton(
+              child: const CircleIcon(
+                icon: Icons.chrome_reader_mode,
               ),
+              onPressed: () {
+                view = !view;
+                setState(() {});
+              },
             ),
-            centerTitle: true,
-            title: Text(
-              // widget.
-              widget.suraName,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  fontFamily: 'quran',
-                  shadows: [
-                    Shadow(
-                      offset: Offset(1, 1),
-                      blurRadius: 2.0,
-                      color: Color.fromARGB(255, 0, 0, 0),
-                    ),
-                  ]),
-            ),
-            backgroundColor: primaryColor),
-        body: SingleSuraBuilder(lengthOfSura),
+          ),
+        ],
       ),
+      body: singleSuraBuilder(lengthOfSura),
     );
   }
 

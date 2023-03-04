@@ -11,11 +11,11 @@ class ArabicSuraNumber extends StatelessWidget {
       style: const TextStyle(
         color: Color.fromARGB(255, 0, 0, 0),
         fontFamily: 'me_quran',
-        fontSize: 20,
+        fontSize: 25.0,
         shadows: [
           Shadow(
-            offset: Offset(.5, .5),
-            blurRadius: 1.0,
+            // offset: Offset(.5, .5),
+            blurRadius: 10.0,
             color: Colors.amberAccent,
           ),
         ],
