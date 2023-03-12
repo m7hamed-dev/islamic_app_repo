@@ -36,7 +36,7 @@ class Utils {
       case 'fajr':
         path = 'subuh';
     }
-    return 'assets/praying_time/' + path + '.png';
+    return 'assets/praying_time/$path.png';
   }
 
   static String translateToArabic(String word) {

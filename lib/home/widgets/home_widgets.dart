@@ -96,7 +96,7 @@ class _HomeWidgetsState extends State<HomeWidgets> {
         SliverGrid(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            childAspectRatio: 2.0 / 2.4,
+            // childAspectRatio: 2.0 / 2.4,
           ),
           delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {

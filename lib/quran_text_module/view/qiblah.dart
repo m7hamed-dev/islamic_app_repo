@@ -28,7 +28,7 @@ class _QiblaState extends State<Qibla> {
       appBar: AppBar(
         backgroundColor: Colors.grey.shade900,
         centerTitle: true,
-        title: Text("Qibla"),
+        title: const Text("Qibla"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -36,17 +36,17 @@ class _QiblaState extends State<Qibla> {
         children: [
           Text(
             "${heading!.ceil()}",
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 26.0,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50.0,
           ),
           Padding(
-            padding: EdgeInsets.all(18.0),
+            padding: const EdgeInsets.all(18.0),
             child: Stack(
               alignment: Alignment.center,
               children: [

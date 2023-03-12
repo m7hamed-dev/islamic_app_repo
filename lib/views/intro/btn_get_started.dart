@@ -11,8 +11,8 @@ class BtnGetStarted extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<IntroProvider>(
-      builder: ((context, _controller, _) {
-        return _controller.currentIndex == 2
+      builder: ((context, controller, _) {
+        return controller.currentIndex == 2
             ? ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.all(20.0),

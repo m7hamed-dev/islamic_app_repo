@@ -10,7 +10,6 @@ import 'package:quran/storage/local_storage.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/tools/constants.dart';
 import 'package:http/http.dart' as http;
-import 'package:quran/tools/push.dart';
 import 'package:quran/widgets/btn.dart';
 import 'package:quran/widgets/custom_card.dart';
 import 'package:quran/widgets/custom_loading.dart';
@@ -156,10 +155,10 @@ class OnBoardingBtn extends StatelessWidget {
       ],
     );
     // }
-    return Btn(
-      child: const Txt('finish'),
-      onPressed: () => Push.to(context, const HomeView()),
-    );
+    // return Btn(
+    //   child: const Txt('finish'),
+    //   onPressed: () => Push.to(context, const HomeView()),
+    // );
   }
 
   _icon() {

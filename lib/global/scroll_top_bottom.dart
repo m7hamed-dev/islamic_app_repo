@@ -40,15 +40,15 @@ class _ScrollTopBottomState extends State<ScrollTopBottom>
   //
   double get _maxScroll => scrollController.position.maxScrollExtent;
   double get _maxPixels => scrollController.position.pixels;
-  //
-  void _animateToIndex() {
-    scrollController.animateTo(
-      _maxPixels == _maxScroll ? 0.0 : _maxScroll,
-      duration: const Duration(seconds: 2),
-      curve: Curves.easeInToLinear,
-      // curve: Curves.fastOutSlowIn,
-    );
-  }
+  // //
+  // void _animateToIndex() {
+  //   scrollController.animateTo(
+  //     _maxPixels == _maxScroll ? 0.0 : _maxScroll,
+  //     duration: const Duration(seconds: 2),
+  //     curve: Curves.easeInToLinear,
+  //     // curve: Curves.fastOutSlowIn,
+  //   );
+  // }
 
   late AnimationController _animationController;
   //

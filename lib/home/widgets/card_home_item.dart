@@ -29,26 +29,31 @@ class CardHomeItem extends StatelessWidget {
     return InkWell(
       onTap: () => Push.to(context, page),
       child: CustomCard(
-        margin: const EdgeInsets.all(10.0),
+        margin: const EdgeInsets.all(5.0),
         color: color,
         child: Stack(
           children: [
             Positioned(
-              bottom: 0.0,
-              left: 0.0,
-              right: 0,
-              top: 0.0,
-              child: CustomAssetImg(path: 'assets/home/$image.png'),
+              // bottom: 0.0,
+              // right: 0,
+              left: 5.0,
+              top: 5.0,
+              child: CustomAssetImg(
+                path: 'assets/home/$image.png',
+                width: 40.0,
+                height: 40.0,
+              ),
             ),
             Positioned(
-              bottom: 5.0,
-              left: 0.0,
+              bottom: 8.0,
+              left: 10.0,
               child: Consumer<ThemeController>(
                 builder: (context, value, _) {
                   return Txt(
                     title,
                     isUseFontSizePrefs: false,
-                    textStyle: maraiBlack.copyWith(fontSize: 20.0),
+                    textStyle: maraiBold.copyWith(fontSize: 14.0),
+                    color: Colors.white,
                   );
                 },
               ),
