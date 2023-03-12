@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/constants/app_assets.dart';
 import 'package:quran/home/widgets/header.dart';
 import 'package:quran/quran_text_module/view/constant.dart';
 import 'package:quran/quran_text_module/view/index.dart';
@@ -7,7 +8,6 @@ import 'package:quran/views/duaa/category_duaa_view.dart';
 import 'package:quran/views/irshad/irshad_view.dart';
 import 'package:quran/views/nawawi/nawawi_view.dart';
 import 'package:quran/views/quiez/quiez_view.dart';
-import '../../views/prayer/prayer_time.dart';
 import '../../views/surah/all_surah_view.dart';
 import 'card_home_item.dart';
 
@@ -21,32 +21,36 @@ class _HomeWidgetsState extends State<HomeWidgets> {
   static final _items = <CardHomeItem>[
     CardHomeItem(
       title: 'pdf - القرآن',
-      image: 'green_quran',
+      image: AppAssets.redQuran,
       page: const AllSurahView(),
       color: blueColor,
     ),
     CardHomeItem(
       title: 'القرآن أون لاين',
-      image: 'quran_ar',
+      // image: 'quran_ar',
+      image: AppAssets.redQuran,
       page: const IndexPage(),
       color: redColor,
     ),
 
     CardHomeItem(
       title: 'آزكار',
-      image: 'praying',
+      // image: 'praying',
+      image: AppAssets.redQuran,
       page: const CategoryDuaaView(),
       color: greenColor,
     ),
-    CardHomeItem(
-      title: 'مواقيت الصلاة',
-      image: 'mosque',
-      page: const PrayTimes(),
-      color: blueColor,
-    ),
+    // CardHomeItem(
+    //   title: 'مواقيت الصلاة',
+    //   // image: 'mosque',
+    //   image: AppAssets.redQuran,
+    //   page: const PrayTimes(),
+    //   color: blueColor,
+    // ),
     CardHomeItem(
       title: 'الآربعون نووية',
-      image: 'mosque',
+      // image: 'mosque',
+      image: AppAssets.redQuran,
       page: const NawawisView(),
       color: blueColor,
     ),
@@ -62,14 +66,16 @@ class _HomeWidgetsState extends State<HomeWidgets> {
     // ),
     CardHomeItem(
       title: 'أسئلة',
-      image: 'conversation',
+      // image: 'conversation',
+      image: AppAssets.redQuran,
       isTransitonFromBottomToUp: true,
       page: const QuiezView(),
       color: blueColor,
     ),
     CardHomeItem(
       title: 'نصائح - إرشادات',
-      image: 'chat',
+      // image: 'chat',
+      image: AppAssets.redQuran,
       page: const IrshadView(),
       color: blueColor,
     ),

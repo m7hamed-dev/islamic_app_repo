@@ -1,11 +1,10 @@
 import 'dart:io';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/constants/app_assets.dart';
-import 'package:quran/home/home_view.dart';
 import 'package:quran/storage/local_storage.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/tools/constants.dart';
@@ -18,7 +17,7 @@ import 'views/qari/qari_list_model.dart';
 
 // load some resources
 Future<void> initialization(BuildContext? context) async =>
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,9 +65,21 @@ class MyApp extends StatelessWidget {
           // locale: context.locale,
           // home: const OnBoardingPage(),
           // home: const NawawisView(),
-          home: const HomeView(),
+          // home: const HomeView(),
+          home: const SplashScreenView(),
         );
       },
+    );
+  }
+}
+
+class SplashScreenView extends StatelessWidget {
+  const SplashScreenView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SvgPicture.asset(AppAssets.animatedLogo),
     );
   }
 }

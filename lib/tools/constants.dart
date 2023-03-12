@@ -14,7 +14,6 @@ import 'package:quran/views/quran/quran_controller.dart';
 import 'package:quran/views/settings/settings_controller.dart';
 import 'package:quran/views/surah/surah_controller.dart';
 import '../views/intro/intro_provider.dart';
-import '../views/prayer/location_serivce.dart';
 import '../views/ramadan/ramadan_controller.dart';
 
 class Constants {
@@ -104,9 +103,9 @@ class Constants {
     ChangeNotifierProvider<IrshadController>(
       create: (_) => IrshadController(),
     ),
-    ChangeNotifierProvider<LocationServiceProvider>(
-      create: (_) => LocationServiceProvider(),
-    ),
+    // ChangeNotifierProvider<LocationServiceProvider>(
+    //   create: (_) => LocationServiceProvider(),
+    // ),
   ];
   // all page names
   static const quranListen = 'quran - listen';

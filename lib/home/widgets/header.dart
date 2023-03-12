@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/constants/app_assets.dart';
 import 'package:quran/tools/hijri_time.dart';
 import 'package:quran/views/theme_view/icon_change_theme_mode.dart';
 import 'package:quran/widgets/icon_settings.dart';
@@ -7,8 +8,14 @@ import '../../widgets/fitted_back_img.dart';
 import 'card_advaice_for_ramadan.dart';
 import 'card_hijri_info.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatefulWidget {
   const Header({Key? key}) : super(key: key);
+
+  @override
+  State<Header> createState() => _HeaderState();
+}
+
+class _HeaderState extends State<Header> {
   //
   static final _advaiceRamadan = <String>[
     ' اعتبر بمضي الزمان وتتابع الأحوال على انقضاء العمر. ',
@@ -26,6 +33,18 @@ class Header extends StatelessWidget {
     'اجعل لنفسك نصيبا من صوم التطوع ولا يكن عهدك بالصيام في رمضان فقط. ',
   ];
   //
+  late int randomNoBackGroundImage;
+
+  String get _getPath {
+    if (randomNoBackGroundImage == 0) {
+      return AppAssets.onBoardingTow;
+    }
+    if (randomNoBackGroundImage == 1) {
+      return AppAssets.onBoardingTow;
+    }
+    return AppAssets.onBoardingTow;
+  }
+
   @override
   Widget build(BuildContext context) {
     //
@@ -36,7 +55,7 @@ class Header extends StatelessWidget {
     //
     return Stack(
       children: [
-        const FittedBackImage(img: 'assets/home/mos.jpg'),
+        FittedBackImage(img: _getPath),
         Positioned(
           top: 25.0,
           right: 15.0,
@@ -63,6 +82,4 @@ class Header extends StatelessWidget {
       ],
     );
   }
-
-  ///
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:quran/home/widgets/custom_asset_img.dart';
 import 'package:quran/styles/theme_controller.dart';
 import 'package:quran/styles/txt_style.dart';
 import 'package:quran/tools/push.dart';
@@ -38,8 +37,8 @@ class CardHomeItem extends StatelessWidget {
               // right: 0,
               left: 5.0,
               top: 5.0,
-              child: CustomAssetImg(
-                path: 'assets/home/$image.png',
+              child: Image.asset(
+                image,
                 width: 40.0,
                 height: 40.0,
               ),

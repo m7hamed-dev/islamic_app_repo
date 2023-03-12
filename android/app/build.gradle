@@ -50,13 +50,10 @@ android {
 
     defaultConfig {
         applicationId "com.awseforapps.khota.islamia"
-        // applicationId "com.example.quran"
         minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode 8
         versionName "1.1.3"
-        // versionName flutterVersionName
-        // versionCode flutterVersionCode.toInteger()
         multiDexEnabled = true
     }
 
